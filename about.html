@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Prime Cyprus</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+  /* === PRIME CYPRUS — Dark Premium Wealth Aesthetic (copied from index) === */
+
+  :root {
+    --bg-primary: #0a0e17;
+    --bg-secondary: #111827;
+    --bg-card: #161e2e;
+    --bg-card-hover: #1c2640;
+    --bg-accent: #1a1f35;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --gold: #d4a853;
+    --gold-light: #e8c97a;
+    --gold-dark: #b8922e;
+    --gold-glow: rgba(212, 168, 83, 0.15);
+    --border: rgba(255, 255, 255, 0.06);
+    --border-gold: rgba(212, 168, 83, 0.25);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
+    --max-width: 1200px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--gold); text-decoration: none; transition: var(--transition); }
+  a:hover { color: var(--gold-light); }
+  img { max-width: 100%; height: auto; display: block; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+  .section { padding: 100px 0; }
+  .section--alt { background: var(--bg-secondary); }
+
+  /* Typography */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 24px; }
+  h3 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin-bottom: 16px; }
+  p { margin-bottom: 16px; color: var(--text-secondary); }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  .btn--primary {
+    background: var(--gold);
+    color: var(--bg-primary);
+  }
+  .btn--primary:hover {
+    background: var(--gold-light);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25);
+  }
+  .btn--outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--border-gold);
+  }
+  .btn--outline:hover {
+    background: var(--gold-glow);
+    color: var(--gold-light);
+    border-color: var(--gold);
+  }
+  .btn--sm { padding: 10px 24px; font-size: 0.85rem; }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .nav__logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav__logo .logo-accent { color: var(--gold); }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav__links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav__links a:hover, .nav__links a.active { color: var(--text-primary); }
+  .nav__links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--gold);
+    transition: var(--transition);
+  }
+  .nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
+
+  .nav__cta { display: flex; align-items: center; gap: 16px; }
+
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav__hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--text-primary);
+    transition: var(--transition);
+  }
+
+  /* Hero (About) */
+  .hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 72px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 20%, rgba(212, 168, 83, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(30, 58, 138, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+  }
+
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--gold-glow);
+    border: 1px solid var(--border-gold);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  /* Two Column Layouts */
+  .two-col {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+    gap: 56px;
+    align-items: flex-start;
+  }
+
+  .two-col__muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .list {
+    list-style: none;
+    margin-top: 24px;
+  }
+  .list li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+  .list li:last-child { border-bottom: none; }
+  .list-bullet {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--gold);
+  }
+
+  /* Cards */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+  }
+  .card:hover::before { opacity: 1; }
+  .card h3 { color: var(--text-primary); }
+  .card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0; }
+
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .pill {
+    border-radius: 999px;
+    border: 1px solid rgba(148,163,184,0.35);
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    color: #e2e8f0;
+  }
+
+  /* Timeline */
+  .timeline {
+    border-left: 1px solid var(--border);
+    padding-left: 20px;
+    margin-top: 24px;
+  }
+  .timeline-item {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -11px;
+    top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--gold);
+  }
+  .timeline-item h4 {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .timeline-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  /* Team Members */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .team-member {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .team-member::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .team-member:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+  }
+  .team-member:hover::before { opacity: 1; }
+  .team-member__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    object-fit: cover;
+    border: 2px solid var(--border-gold);
+    background: var(--bg-accent);
+    display: block;
+  }
+  .team-member__name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .team-member__role {
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .team-member__bio {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .team-member__socials {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .team-member__socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    background: transparent;
+  }
+  .team-member__socials a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: var(--gold-glow);
+  }
+  .team-member__socials svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: 64px 0 32px;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer__brand p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    max-width: 300px;
+    margin-top: 16px;
+  }
+  .footer h4 {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .footer__links { list-style: none; }
+  .footer__links li { margin-bottom: 10px; }
+  .footer__links a { font-size: 0.9rem; color: var(--text-secondary); }
+  .footer__links a:hover { color: var(--gold); }
+  .footer__bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .animate-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .section { padding: 64px 0; }
+    .nav__links, .nav__cta .btn { display: none; }
+    .nav__hamburger { display: flex; }
+    .nav.mobile-open .nav__links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 72px; left: 0; right: 0;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      gap: 20px;
+    }
+    .hero { min-height: auto; padding: 120px 0 64px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .hero__content h1 { font-size: 2.1rem; }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="digital-wealth.html">Digital Wealth</a></li>
+        <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--primary btn--sm">Book a Call &rarr;</a>
+      </div>
+
+      <button class="nav__hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__eyebrow animate-in">
+          <span>About Prime Cyprus</span>
+        </div>
+        <h1 class="animate-in">A relocation partner built for the digital economy.</h1>
+        <p class="lead animate-in">
+          Prime Cyprus exists to help founders, investors, and high‑leverage operators move their lives
+          and structures to a jurisdiction that actually understands digital wealth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story & Mission -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label animate-in">Our Story</span>
+          <h2 class="animate-in">Born from the pain of building in high‑tax, low‑clarity systems.</h2>
+          <p class="animate-in">
+            Prime Cyprus was founded by operators and investors who spent years building in jurisdictions
+            where the rules were written for an industrial economy, not a digital one. We saw talented people
+            punished for volatility, innovation, and cross‑border income &mdash; and we realized there was a better way.
+          </p>
+          <p class="animate-in">
+            Cyprus offered the ingredients we were looking for: EU rule of law, a transparent tax code,
+            and a regime that treats software, IP, and crypto as first‑class citizens. Prime Cyprus was
+            created to bridge that opportunity to the builders who need it most.
+          </p>
+        </div>
+
+        <div class="animate-in">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4>From founders, for founders</h4>
+              <p>We started as founders relocating our own companies and portfolios to Cyprus. Every structure we propose is one we would be comfortable using ourselves.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4>Global, remote‑first clients</h4>
+              <p>Our clients live in airports and on Zoom calls &mdash; not in one office. We build plans around remote income, distributed teams, and digital assets.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4>On‑the‑ground execution</h4>
+              <p>From bank appointments to property inspections, we work with vetted local professionals in Cyprus so your plan is not just optimized on paper, but implemented in the real world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Team -->
+  <section class="section section--alt">
+    <div class="container">
+      <span class="section-label animate-in">Meet the Team</span>
+      <h2 class="animate-in">The right experts.<br>All in one place.</h2>
+      <p class="lead animate-in">
+        Our team combines legal, financial and local expertise so every piece of your structure works together. Less lost to tax. More stays yours.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-member animate-in">
+          <img src="" alt="Team member" class="team-member__photo">
+          <h3 class="team-member__name">Name</h3>
+          <p class="team-member__role">Role</p>
+          <p class="team-member__bio">Brief description of their background, expertise, and what they bring to Prime Cyprus.</p>
+          <div class="team-member__socials">
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="team-member animate-in">
+          <img src="" alt="Team member" class="team-member__photo">
+          <h3 class="team-member__name">Name</h3>
+          <p class="team-member__role">Role</p>
+          <p class="team-member__bio">Brief description of their background, expertise, and what they bring to Prime Cyprus.</p>
+          <div class="team-member__socials">
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="team-member animate-in">
+          <img src="" alt="Team member" class="team-member__photo">
+          <h3 class="team-member__name">Name</h3>
+          <p class="team-member__role">Role</p>
+          <p class="team-member__bio">Brief description of their background, expertise, and what they bring to Prime Cyprus.</p>
+          <div class="team-member__socials">
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We're Different -->
+  <section class="section">
+    <div class="container">
+      <span class="section-label animate-in">Why We're Different</span>
+      <h2 class="animate-in">More than a real estate agent. More than a law firm.</h2>
+      <p class="lead animate-in">
+        Generic agents sell you whatever they have on inventory. We start with your tax position,
+        residency strategy, and long‑term plan &mdash; then design property and company structures around that.
+      </p>
+
+      <div class="two-col" style="margin-top: 40px;">
+        <div class="animate-in">
+          <h3>Prime Cyprus vs. traditional real estate</h3>
+          <ul class="list">
+            <li>
+              <span class="list-bullet">&#10003;</span>
+              <span><strong style="color: var(--text-primary);">Strategy‑first, property‑second</strong> &mdash; we never start by sending you a folder of listings. We begin with tax, residency, and lifestyle goals, then match assets that serve the plan.</span>
+            </li>
+            <li>
+              <span class="list-bullet">&#10003;</span>
+              <span><strong style="color: var(--text-primary);">Aligned incentives</strong> &mdash; we deliberately limit the number of developers we work with so we can say no. If a project does not support your objectives, we walk away.</span>
+            </li>
+            <li>
+              <span class="list-bullet">&#10003;</span>
+              <span><strong style="color: var(--text-primary);">End‑to‑end visibility</strong> &mdash; from corporate structure to personal residency, you see how each decision affects your effective tax rate and exit options.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="animate-in">
+          <h3>Built specifically for digital wealth builders</h3>
+          <p class="two-col__muted">
+            We focus on a narrow client profile so we can go very deep instead of trying to serve everyone.
+            If your wealth is tied to bytes instead of bricks, you're in the right place.
+          </p>
+          <ul class="list">
+            <li>
+              <span class="list-bullet">&#10003;</span>
+              <span>Crypto investors and protocol contributors navigating unlocks, staking rewards, and multi‑jurisdiction exposure.</span>
+            </li>
+            <li>
+              <span class="list-bullet">&#10003;</span>
+              <span>AI and SaaS founders leveraging the Cyprus IP Box to drop qualifying income to a 2.5% effective rate.</span>
+            </li>
+            <li>
+              <span class="list-bullet">&#10003;</span>
+              <span>Remote consultants and creators who want EU credibility, stable rules, and a 60‑day residency option.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--alt">
+    <div class="container" style="text-align: center;">
+      <span class="section-label animate-in">Next Step</span>
+      <h2 class="animate-in">Tell us your current setup. We'll map Cyprus onto it.</h2>
+      <div class="animate-in" style="margin-top: 32px;">
+        <a href="contact.html" class="btn btn--primary">Book a Consultation &rarr;</a>
+        <a href="digital-wealth.html" class="btn btn--outline" style="margin-left: 12px;">Read the Digital Wealth Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+          </a>
+          <p>Tax optimization, residency planning, and property investment for digital wealth builders. Based in Cyprus, serving clients globally.</p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul class="footer__links">
+            <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+            <li><a href="properties.html">Property Investment</a></li>
+            <li><a href="digital-wealth.html">Digital Wealth Planning</a></li>
+            <li><a href="contact.html">Book a Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer__links">
+            <li><a href="residency-tax.html#non-dom">Non-Dom Guide</a></li>
+            <li><a href="residency-tax.html#60day">60-Day Rule</a></li>
+            <li><a href="properties.html#crypto">Buy with Crypto</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Prime Cyprus. All rights reserved.</span>
+        <span>This website provides general information and is not financial, legal, or tax advice. Always consult qualified professionals for your specific situation.</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll animations
+  const animateElements = document.querySelectorAll('.animate-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  animateElements.forEach(el => observer.observe(el));
+
+  // Mobile Navigation
+  const hamburger = document.querySelector('.nav__hamburger');
+  const nav = document.querySelector('.nav');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('mobile-open');
+    });
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 50) {
+      nav.style.borderBottomColor = 'rgba(255,255,255,0.08)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(255,255,255,0.06)';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+
