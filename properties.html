@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Properties - Prime Cyprus</title>
+<style>
+body { background: #0a0e17; color: #fff; font-family: sans-serif; padding: 40px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.card { background: #161e2e; border-radius: 12px; padding: 24px; }
+.card h2 { margin: 0 0 8px; font-size: 1.2rem; }
+.card .price { color: #c9a96e; font-size: 1.1rem; margin-bottom: 8px; }
+.card .meta { color: #aaa; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<h1>Properties</h1>
+<div id="grid" class="grid"><p>Loading...</p></div>
+<script>
+fetch('https://7ic15vv6.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="property"]')
+  .then(r => r.json())
+  .then(data => {
+    const grid = document.getElementById('grid');
+    if (!data.result.length) { grid.innerHTML = '<p>No properties found.</p>'; return; }
+    grid.innerHTML = data.result.map(p => `
+      <div class="card">
+        <h2>${p.title}</h2>
+        <div class="price">€${p.price ? p.price.toLocaleString() : 'POA'}</div>
+        <div class="meta">${p.location || ''} · ${p.bedrooms || 0} bed · ${p.bathrooms || 0} bath · ${p.sizeSqm || 0} sqm</div>
+        <p>${p.description || ''}</p>
+      </div>
+    `).join('');
+  })
+  .catch(e => document.getElementById('grid').innerHTML = '<p>Error: ' + e.message + '</p>');
+</script>
+</body>
+</html>
