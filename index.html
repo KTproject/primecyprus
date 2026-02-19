@@ -458,6 +458,14 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   position: relative;
   overflow: hidden;
 }
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin: -4px 0 16px;
+  max-height: 220px;
+  object-fit: cover;
+  display: block;
+}
 .card::before {
   content: '';
   position: absolute;
@@ -900,6 +908,20 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
     </div>
   </section>
 
+  <!-- Featured Properties -->
+  <section class="section section--alt" id="featured-properties-section">
+    <div class="container">
+      <span class="section-label animate-in">Featured Properties</span>
+      <h2 class="animate-in">Residency-grade real estate in Cyprus.</h2>
+      <p class="lead animate-in">
+        A small selection of properties that work well for Cyprus residency, lifestyle upgrades, or yield-focused investment.
+      </p>
+      <div id="featured-properties" class="cards-grid animate-in">
+        <p style="color: var(--text-muted);">Loading featured properties…</p>
+      </div>
+    </div>
+  </section>
+
  <!-- Who It's For -->
 <section class="section section--alt" id="audience">
   <div class="container">
@@ -1317,6 +1339,55 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.style.borderBottomColor = 'rgba(255,255,255,0.06)';
     }
   });
+
+  // Featured properties from Sanity (project 7ic15vv6)
+  const featuredContainer = document.getElementById('featured-properties');
+  if (featuredContainer) {
+    const featuredQuery = encodeURIComponent(`*[_type == "property" && featured == true][0...3]{
+      _id,
+      title,
+      price,
+      location,
+      description,
+      "imageUrl": coalesce(mainImage.asset->url, image.asset->url, images[0].asset->url)
+    }`);
+
+    const featuredEndpoint = `https://7ic15vv6.api.sanity.io/v2021-10-21/data/query/production?query=${featuredQuery}`;
+
+    fetch(featuredEndpoint)
+      .then(r => r.json())
+      .then(({ result }) => {
+        const props = result || [];
+        if (!props.length) {
+          featuredContainer.innerHTML = '<p style="color: var(--text-muted);">No featured properties are live right now. Reach out and we&apos;ll share off-market options.</p>';
+          return;
+        }
+
+        featuredContainer.innerHTML = props.map(p => {
+          const hasImage = !!p.imageUrl;
+          const imgUrl = hasImage
+            ? `${p.imageUrl}?w=900&h=600&fit=crop&auto=format`
+            : '';
+          const priceText = typeof p.price === 'number'
+            ? `€${p.price.toLocaleString('en-US')}`
+            : (p.price || 'Price on application');
+
+          return `
+            <div class="card">
+              ${hasImage ? `<img src="${imgUrl}" alt="${(p.title || 'Featured property in Cyprus').replace(/"/g, '&quot;')}" loading="lazy">` : ''}
+              <h3>${p.title || 'Featured property in Cyprus'}</h3>
+              ${p.location ? `<p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">${p.location}</p>` : ''}
+              <p style="color: var(--gold); font-weight: 600; margin-bottom: 10px;">${priceText}</p>
+              ${p.description ? `<p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">${p.description}</p>` : ''}
+              <a href="properties.html" class="card__link">View all properties &rarr;</a>
+            </div>
+          `;
+        }).join('');
+      })
+      .catch(() => {
+        featuredContainer.innerHTML = '<p style="color: var(--text-muted);">We couldn&apos;t load featured properties just now. Try again shortly or contact us.</p>';
+      });
+  }
 });
 </script>
 </body>
