@@ -303,7 +303,8 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
           <p style="margin-bottom: 32px;">Fill out the form and we&rsquo;ll get back to you within 24 hours.</p>
 
           <!-- Formspree form — replace YOUR_FORM_ID with your actual Formspree form ID -->
-          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="4c36ea3b-44bc-4d0a-b1cb-e2a35c3e15a7">
             <!-- Honeypot spam protection (hidden field bots fill in) -->
             <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
 
