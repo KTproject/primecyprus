@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Savings Calculator &mdash; Prime Cyprus</title>
+  <meta name="description" content="See how much you could save by becoming a Cyprus tax resident. Free estimate for crypto investors, AI founders, and digital wealth builders.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a0e17;
+  --bg2: #111827;
+  --bg3: #161e2e;
+  --bg4: #1c2640;
+  --text: #f1f5f9;
+  --text2: #94a3b8;
+  --muted: #64748b;
+  --gold: #d4a853;
+  --gold-light: #e8c97a;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --gold-border: rgba(212, 168, 83, 0.25);
+  --border: rgba(255,255,255,0.06);
+  --red: #ef4444;
+  --green: #4ade80;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; overflow-x: hidden; }
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-light); }
+
+/* Nav */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,14,23,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; }
+.nav__inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav__logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.nav__logo .acc { color: var(--gold); }
+.nav__back { font-size: 0.85rem; color: var(--text2); display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.nav__back:hover { color: var(--gold); }
+
+/* Layout */
+.page { padding: 100px 24px 80px; max-width: 860px; margin: 0 auto; }
+
+/* Header */
+.page-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--gold-glow); border: 1px solid var(--gold-border); border-radius: 100px; font-size: 0.75rem; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 24px; }
+.page-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+.page-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+.page-title em { font-style: italic; color: var(--gold); }
+.page-lead { font-size: 1.05rem; color: var(--text2); max-width: 580px; margin-bottom: 56px; line-height: 1.8; }
+
+/* Steps */
+.steps { display: flex; gap: 8px; margin-bottom: 40px; }
+.step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all 0.3s var(--ease); }
+.step-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+.step-dot.done { background: var(--gold-border); }
+
+/* Calculator card */
+.calc-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.calc-card__header { padding: 28px 32px 0; }
+.calc-card__step { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.calc-card__question { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.calc-card__body { padding: 28px 32px 32px; }
+
+/* Option buttons */
+.options { display: grid; gap: 10px; margin-top: 4px; }
+.options--2 { grid-template-columns: 1fr 1fr; }
+.options--3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.option-btn {
+  padding: 16px 20px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  color: var(--text2);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.option-btn:hover { border-color: var(--gold-border); color: var(--text); background: var(--bg4); }
+.option-btn.selected { border-color: var(--gold); background: var(--gold-glow); color: var(--text); }
+.option-btn .opt-label { font-weight: 600; font-size: 0.95rem; }
+.option-btn .opt-sub { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+.option-btn.selected .opt-sub { color: var(--text2); }
+
+/* Next button */
+.calc-next {
+  margin-top: 24px;
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.calc-next:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,168,83,0.2); }
+.calc-next:disabled { opacity: 0.3; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* Result screen */
+.result { padding: 40px 32px; text-align: center; }
+.result__eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text2); margin-bottom: 12px; }
+.result__number { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; animation: countUp 1s var(--ease) forwards; }
+.result__sublabel { font-size: 0.95rem; color: var(--text2); margin-bottom: 40px; }
+
+@keyframes countUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Breakdown table */
+.breakdown { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 32px; overflow: hidden; }
+.breakdown-row { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.breakdown-row:last-child { border-bottom: none; }
+.breakdown-row.header { background: var(--bg3); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.breakdown-row .country { color: var(--text2); }
+.breakdown-row .current-tax { color: var(--red); font-weight: 600; }
+.breakdown-row .cyprus-tax { color: var(--green); font-weight: 600; }
+.breakdown-row .saving { color: var(--gold); font-weight: 700; }
+
+/* Email gate */
+.email-gate { border-top: 1px solid var(--border); padding: 32px; background: var(--bg3); }
+.email-gate h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 8px; }
+.email-gate p { font-size: 0.9rem; color: var(--text2); margin-bottom: 20px; }
+.email-row { display: flex; gap: 10px; }
+.email-input { flex: 1; padding: 14px 16px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px; color: var(--text); font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.2s; }
+.email-input:focus { outline: none; border-color: var(--gold); }
+.email-submit { padding: 14px 24px; background: var(--gold); color: var(--bg); border: none; border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.email-submit:hover { background: var(--gold-light); }
+.email-note { font-size: 0.75rem; color: var(--muted); margin-top: 10px; margin-bottom: 0; }
+
+/* Success state */
+.success-state { text-align: center; padding: 48px 32px; }
+.success-state .check { font-size: 3rem; margin-bottom: 16px; }
+.success-state h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); margin-bottom: 12px; }
+.success-state p { color: var(--text2); margin-bottom: 28px; }
+.success-state .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: var(--gold); color: var(--bg); border: none; border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+.success-state .btn:hover { background: var(--gold-light); }
+
+/* Disclaimer */
+.disclaimer { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 24px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* Footer */
+.footer-simple { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 80px; }
+
+/* Transitions */
+.screen { display: none; }
+.screen.active { display: block; animation: fadeIn 0.3s var(--ease); }
+@keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+@media (max-width: 640px) {
+  .options--2, .options--3 { grid-template-columns: 1fr; }
+  .email-row { flex-direction: column; }
+  .calc-card__header, .calc-card__body { padding: 20px; }
+  .result { padding: 28px 20px; }
+  .breakdown-row { font-size: 0.8rem; padding: 12px 14px; }
+  .email-gate { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="acc">&#9670;</span> Prime <span class="acc">Cyprus</span>
+    </a>
+    <a href="index.html" class="nav__back">&#8592; Back to site</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-badge">Free Tax Estimate</div>
+  <h1 class="page-title">How much are you<br>leaving on the table <em>this year?</em></h1>
+  <p class="page-lead">Answer 4 quick questions. We'll show you your estimated annual tax saving as a Cyprus resident — no email required to see the number.</p>
+
+  <!-- Step indicators -->
+  <div class="steps">
+    <div class="step-dot active" id="dot-0"></div>
+    <div class="step-dot" id="dot-1"></div>
+    <div class="step-dot" id="dot-2"></div>
+    <div class="step-dot" id="dot-3"></div>
+  </div>
+
+  <!-- Calculator -->
+  <div class="calc-card">
+
+    <!-- Step 0: Country -->
+    <div class="screen active" id="screen-0">
+      <div class="calc-card__header">
+        <div class="calc-card__step">Step 1 of 4</div>
+        <div class="calc-card__question">Where are you currently a tax resident?</div>
+      </div>
+      <div class="calc-card__body">
+        <div class="options options--2">
+          <button class="option-btn" data-step="0" data-value="germany">
+            <span class="opt-label">🇩🇪 Germany</span>
+            <span class="opt-sub">Up to 26.375% capital gains</span>
+          </button>
+          <button class="option-btn" data-step="0" data-value="uk">
+            <span class="opt-label">🇬🇧 United Kingdom</span>
+            <span class="opt-sub">Up to 45% income tax</span>
+          </button>
+          <button class="option-btn" data-step="0" data-value="denmark">
+            <span class="opt-label">🇩🇰 Denmark</span>
+            <span class="opt-sub">Up to 52% marginal rate</span>
+          </button>
+          <button class="option-btn" data-step="0" data-value="sweden">
+            <span class="opt-label">🇸🇪 Sweden</span>
+            <span class="opt-sub">Up to 57% marginal rate</span>
+          </button>
+          <button class="option-btn" data-step="0" data-value="norway">
+            <span class="opt-label">🇳🇴 Norway</span>
+            <span class="opt-sub">Up to 37.84% dividend tax</span>
+          </button>
+          <button class="option-btn" data-step="0" data-value="netherlands">
+            <span class="opt-label">🇳🇱 Netherlands</span>
+            <span class="opt-sub">Up to 49.5% income tax</span>
+          </button>
+          <button class="option-btn" data-step="0" data-value="other">
+            <span class="opt-label">🌍 Other / Multiple</span>
+            <span class="opt-sub">High-tax jurisdiction</span>
+          </button>
+        </div>
+        <button class="calc-next" id="next-0" disabled>Continue &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 1: Income type -->
+    <div class="screen" id="screen-1">
+      <div class="calc-card__header">
+        <div class="calc-card__step">Step 2 of 4</div>
+        <div class="calc-card__question">What is your primary income source?</div>
+      </div>
+      <div class="calc-card__body">
+        <div class="options options--2">
+          <button class="option-btn" data-step="1" data-value="dividends">
+            <span class="opt-label">💰 Dividends</span>
+            <span class="opt-sub">From company ownership</span>
+          </button>
+          <button class="option-btn" data-step="1" data-value="crypto">
+            <span class="opt-label">₿ Crypto gains</span>
+            <span class="opt-sub">Trading, staking, DeFi</span>
+          </button>
+          <button class="option-btn" data-step="1" data-value="saas">
+            <span class="opt-label">💻 SaaS / Software IP</span>
+            <span class="opt-sub">Licensing, subscriptions, APIs</span>
+          </button>
+          <button class="option-btn" data-step="1" data-value="consulting">
+            <span class="opt-label">🌍 Consulting / Freelance</span>
+            <span class="opt-sub">Remote income, contracts</span>
+          </button>
+        </div>
+        <button class="calc-next" id="next-1" disabled>Continue &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Income amount -->
+    <div class="screen" id="screen-2">
+      <div class="calc-card__header">
+        <div class="calc-card__step">Step 3 of 4</div>
+        <div class="calc-card__question">Approximate annual income from this source?</div>
+      </div>
+      <div class="calc-card__body">
+        <div class="options">
+          <button class="option-btn" data-step="2" data-value="100">
+            <span class="opt-label">€100,000 – €250,000</span>
+          </button>
+          <button class="option-btn" data-step="2" data-value="250">
+            <span class="opt-label">€250,000 – €500,000</span>
+          </button>
+          <button class="option-btn" data-step="2" data-value="500">
+            <span class="opt-label">€500,000 – €1,000,000</span>
+          </button>
+          <button class="option-btn" data-step="2" data-value="1000">
+            <span class="opt-label">€1,000,000+</span>
+          </button>
+        </div>
+        <button class="calc-next" id="next-2" disabled>Continue &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Currently paying tax -->
+    <div class="screen" id="screen-3">
+      <div class="calc-card__header">
+        <div class="calc-card__step">Step 4 of 4</div>
+        <div class="calc-card__question">Are you currently paying tax on this income?</div>
+      </div>
+      <div class="calc-card__body">
+        <div class="options options--2">
+          <button class="option-btn" data-step="3" data-value="yes">
+            <span class="opt-label">Yes, fully taxed</span>
+            <span class="opt-sub">Standard tax resident</span>
+          </button>
+          <button class="option-btn" data-step="3" data-value="partial">
+            <span class="opt-label">Partially optimised</span>
+            <span class="opt-sub">Some structures in place</span>
+          </button>
+          <button class="option-btn" data-step="3" data-value="no">
+            <span class="opt-label">Not currently</span>
+            <span class="opt-sub">Deferred or untaxed</span>
+          </button>
+          <button class="option-btn" data-step="3" data-value="unsure">
+            <span class="opt-label">Not sure</span>
+            <span class="opt-sub">Complex situation</span>
+          </button>
+        </div>
+        <button class="calc-next" id="next-3" disabled>Calculate my savings &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Result screen -->
+    <div class="screen" id="screen-result">
+      <div class="result">
+        <div class="result__eyebrow">Your estimated annual tax saving</div>
+        <div class="result__number" id="resultNumber">€0</div>
+        <div class="result__sublabel" id="resultSublabel">by becoming a Cyprus tax resident</div>
+
+        <div class="breakdown" id="breakdownTable"></div>
+
+        <div class="result__context" id="resultContext" style="font-size:0.9rem;color:var(--text2);margin-bottom:32px;line-height:1.8;text-align:left;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:20px 24px;"></div>
+      </div>
+
+      <!-- Email gate -->
+      <div class="email-gate" id="emailGate">
+        <h3>Get the full breakdown</h3>
+        <p>We'll send you a personalised summary with exact next steps for your situation — and how to get started.</p>
+        <div class="email-row">
+          <input type="email" class="email-input" id="emailInput" placeholder="your@email.com">
+          <button class="email-submit" onclick="submitEmail()">Send me the breakdown</button>
+        </div>
+        <p class="email-note">No spam. No sharing. Unsubscribe anytime.</p>
+      </div>
+
+      <!-- Success -->
+      <div class="success-state" id="successState" style="display:none;">
+        <div class="check">&#10003;</div>
+        <h3>On its way.</h3>
+        <p>Check your inbox — and book a free call if you want to talk through your specific situation.</p>
+        <a href="contact.html" class="btn">Book a Free Consultation &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="disclaimer">
+    Estimates are illustrative and based on standard published tax rates. Individual circumstances vary significantly. This is not tax, legal, or financial advice. Always consult a qualified tax advisor for your specific situation.
+  </p>
+
+</div>
+
+<div class="footer-simple">
+  &copy; 2026 Prime Cyprus &mdash; <a href="index.html">Back to site</a>
+</div>
+
+<script>
+// Tax rates by country and income type (approximate effective rates)
+const taxRates = {
+  germany:     { dividends: 0.2638, crypto: 0.2638, saas: 0.30, consulting: 0.42 },
+  uk:          { dividends: 0.3375, crypto: 0.24,   saas: 0.25, consulting: 0.45 },
+  denmark:     { dividends: 0.42,   crypto: 0.42,   saas: 0.38, consulting: 0.52 },
+  sweden:      { dividends: 0.30,   crypto: 0.30,   saas: 0.28, consulting: 0.52 },
+  norway:      { dividends: 0.3784, crypto: 0.22,   saas: 0.28, consulting: 0.47 },
+  netherlands: { dividends: 0.32,   crypto: 0.32,   saas: 0.258,consulting: 0.495 },
+  other:       { dividends: 0.30,   crypto: 0.28,   saas: 0.28, consulting: 0.40 },
+};
+
+const cyprusRates = {
+  dividends: 0,
+  crypto: 0,
+  saas: 0.025,
+  consulting: 0.125,
+};
+
+const incomeRanges = {
+  100:  { mid: 175000,  label: '€100k–250k' },
+  250:  { mid: 375000,  label: '€250k–500k' },
+  500:  { mid: 750000,  label: '€500k–1m' },
+  1000: { mid: 1500000, label: '€1m+' },
+};
+
+const countryNames = {
+  germany: 'Germany', uk: 'United Kingdom', denmark: 'Denmark',
+  sweden: 'Sweden', norway: 'Norway', netherlands: 'Netherlands', other: 'Current country'
+};
+
+const incomeLabels = {
+  dividends: 'dividends', crypto: 'crypto gains', saas: 'IP / SaaS income', consulting: 'consulting income'
+};
+
+// State
+let answers = { country: null, income: null, amount: null, paying: null };
+let currentStep = 0;
+
+// Option button handling
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const step = parseInt(btn.dataset.step);
+    const value = btn.dataset.value;
+
+    // Deselect siblings
+    document.querySelectorAll(`[data-step="${step}"]`).forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // Store answer
+    const keys = ['country', 'income', 'amount', 'paying'];
+    answers[keys[step]] = value;
+
+    // Enable next
+    document.getElementById(`next-${step}`).disabled = false;
+  });
+});
+
+// Next button handling
+for (let i = 0; i < 4; i++) {
+  document.getElementById(`next-${i}`).addEventListener('click', () => {
+    goToStep(i + 1);
+  });
+}
+
+function goToStep(step) {
+  // Hide current
+  document.getElementById(`screen-${currentStep}`).classList.remove('active');
+  // Update dots
+  document.getElementById(`dot-${currentStep}`).classList.remove('active');
+  document.getElementById(`dot-${currentStep}`).classList.add('done');
+
+  currentStep = step;
+
+  if (step < 4) {
+    document.getElementById(`screen-${step}`).classList.add('active');
+    document.getElementById(`dot-${step}`).classList.remove('done');
+    document.getElementById(`dot-${step}`).classList.add('active');
+  } else {
+    // Show result
+    document.getElementById('screen-result').classList.add('active');
+    calculateResult();
+  }
+}
+
+function calculateResult() {
+  const country = answers.country;
+  const income = answers.income;
+  const amountKey = parseInt(answers.amount);
+  const paying = answers.paying;
+
+  const incomeMid = incomeRanges[amountKey].mid;
+  const incomeLabel = incomeRanges[amountKey].label;
+
+  let currentRate = taxRates[country][income];
+  let cyprusRate = cyprusRates[income];
+
+  // Adjust for partial optimisation
+  if (paying === 'partial') currentRate = currentRate * 0.7;
+  if (paying === 'no') currentRate = currentRate * 0.3;
+
+  const currentTax = Math.round(incomeMid * currentRate);
+  const cyprusTax = Math.round(incomeMid * cyprusRate);
+  const saving = currentTax - cyprusTax;
+
+  // Animate number
+  animateNumber(document.getElementById('resultNumber'), saving);
+
+  // Breakdown table
+  const breakdown = document.getElementById('breakdownTable');
+  breakdown.innerHTML = `
+    <div class="breakdown-row header">
+      <div></div>
+      <div>Current tax</div>
+      <div>Cyprus tax</div>
+    </div>
+    <div class="breakdown-row">
+      <div class="country">${incomeLabel} ${incomeLabels[income]}</div>
+      <div class="current-tax">€${currentTax.toLocaleString()}</div>
+      <div class="cyprus-tax">€${cyprusTax.toLocaleString()}</div>
+    </div>
+    <div class="breakdown-row" style="background:var(--bg3);">
+      <div style="color:var(--text2);font-weight:600;">Annual saving</div>
+      <div></div>
+      <div class="saving">€${saving.toLocaleString()}</div>
+    </div>
+  `;
+
+  // Context
+  const ctx = document.getElementById('resultContext');
+  const contextMap = {
+    dividends: `Under Cyprus non-dom status, dividends are exempt from Special Defence Contribution for 17 years — giving you a 0% rate on dividend income. Combined with the 60-day tax residency rule, this is achievable with just 2 months per year in Cyprus.`,
+    crypto: `Cyprus does not classify cryptocurrency as a security for tax purposes. Crypto capital gains are not subject to Capital Gains Tax, making Cyprus one of the only EU member states with effectively 0% tax on crypto gains.`,
+    saas: `The Cyprus IP Box regime taxes qualifying intellectual property income — including software licensing, SaaS subscriptions, and API access — at an effective rate of just 2.5%. One of the lowest rates globally for tech income.`,
+    consulting: `A Cyprus company structure with non-dom status allows you to draw income tax-efficiently. Corporate tax is 12.5%, with 0% on dividends paid to qualifying non-doms — significantly below typical consulting income tax rates.`,
+  };
+  ctx.textContent = contextMap[income];
+}
+
+function animateNumber(el, target) {
+  const duration = 1200;
+  const start = performance.now();
+  const update = (time) => {
+    const progress = Math.min((time - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+    el.textContent = '€' + current.toLocaleString();
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+// Email submission
+async function submitEmail() {
+  const email = document.getElementById('emailInput').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('emailInput').style.borderColor = '#ef4444';
+    return;
+  }
+
+  const btn = document.querySelector('.email-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  // Web3Forms submission
+  const formData = new FormData();
+  formData.append('access_key', 'YOUR_WEB3FORMS_KEY'); // Replace with your key
+  formData.append('email', email);
+  formData.append('subject', 'Tax Calculator Lead — Prime Cyprus');
+  formData.append('country', countryNames[answers.country] || answers.country);
+  formData.append('income_type', answers.income);
+  formData.append('income_range', incomeRanges[parseInt(answers.amount)]?.label || answers.amount);
+  formData.append('currently_paying', answers.paying);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+    if (res.ok) {
+      document.getElementById('emailGate').style.display = 'none';
+      document.getElementById('successState').style.display = 'block';
+    } else {
+      throw new Error();
+    }
+  } catch {
+    btn.textContent = 'Send me the breakdown';
+    btn.disabled = false;
+    alert('Something went wrong. Please email us directly at info@primecyprus.com');
+  }
+}
+</script>
+</body>
+</html>
