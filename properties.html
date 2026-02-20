@@ -137,7 +137,8 @@
       sizeSqm,
       description,
       featured,
-      "imageUrl": coalesce(mainImage.asset->url, image.asset->url, images[0].asset->url)
+      "imageUrl": coalesce(mainImage.asset->url, image.asset->url, images[0].asset->url),
+      "slug": slug.current
     }`);
 
     const endpoint = `https://7ic15vv6.api.sanity.io/v2021-10-21/data/query/production?query=${query}`;
@@ -177,23 +178,22 @@
           if (p.sizeSqm) pills.push(`${p.sizeSqm} m²`);
 
           return `
-            <div class="card">
-              ${hasImage ? `<img src="${imgUrl}" alt="${(p.title || 'Property in Cyprus').replace(/"/g, '&quot;')}" loading="lazy">` : ''}
-              ${p.featured ? '<div class="badge">Featured</div>' : ''}
-              <h2>${p.title || 'Property in Cyprus'}</h2>
-              <div class="price">${priceText}</div>
-              ${metaLine ? `<div class="meta">${metaLine}</div>` : ''}
-              ${p.description ? `<p class="description">${p.description}</p>` : ''}
-              ${pills.length ? `
-                <div class="pill-row">
-                  ${pills.map(label => `<span class="pill">${label}</span>`).join('')}
-                </div>
-              ` : ''}
-              <a class="cta" href="contact.html?property=${encodeURIComponent(p._id || '')}">
-                Inquire about this property
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
+             <a class="card" href="property-detail.html?slug=${p.slug || ''}" style="text-decoration:none;display:block;">
+    ${hasImage ? `<img src="${imgUrl}" alt="${(p.title || 'Property in Cyprus').replace(/"/g, '&quot;')}" loading="lazy">` : ''}
+    ${p.featured ? '<div class="badge">Featured</div>' : ''}
+    <h2>${p.title || 'Property in Cyprus'}</h2>
+    <div class="price">${priceText}</div>
+    ${metaLine ? `<div class="meta">${metaLine}</div>` : ''}
+    ${p.description ? `<p class="description">${p.description}</p>` : ''}
+    ${pills.length ? `
+      <div class="pill-row">
+        ${pills.map(label => `<span class="pill">${label}</span>`).join('')}
+      </div>
+    ` : ''}
+    <div class="cta">
+      View Property →
+    </div>
+  </a>
           `;
         }).join('');
       })
