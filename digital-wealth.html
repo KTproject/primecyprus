@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Wealth &mdash; Cyprus Tax Optimization for Crypto, AI &amp; SaaS | Prime Cyprus</title>
+  <meta name="description" content="Cyprus offers 8% flat tax on crypto gains, 0% dividends under non-dom status, 2.5% IP Box for AI and SaaS, and the ability to buy property with crypto. Built for digital wealth builders.">
+  <meta name="keywords" content="Cyprus crypto tax, 8% crypto tax Cyprus, non-dom dividends Cyprus, IP Box regime AI, buy property with Bitcoin Cyprus, digital wealth Cyprus, SaaS tax optimization Cyprus">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Digital Wealth &mdash; Cyprus Tax Optimization for Crypto, AI &amp; SaaS">
+  <meta property="og:description" content="8% on crypto gains. 0% on dividends. 2.5% IP Box. Buy property with crypto. Cyprus works for digital wealth.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://primecyprus.com/digital-wealth">
+  <meta property="og:site_name" content="Prime Cyprus">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Wealth &mdash; Cyprus for Crypto, AI &amp; SaaS Founders">
+  <meta name="twitter:description" content="8% crypto tax. 0% dividends. 2.5% IP Box. Buy property with crypto. Cyprus is built for you.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #161e2e;
+  --bg-card-hover: #1c2640;
+  --bg-accent: #1a1f35;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --gold: #d4a853;
+  --gold-light: #e8c97a;
+  --gold-dark: #b8922e;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-gold: rgba(212, 168, 83, 0.25);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --max-width: 1200px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; font-size: 16px; overflow-x: hidden; }
+a { color: var(--gold); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--gold-light); }
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; }
+.section--alt { background: var(--bg-secondary); }
+
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 24px; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin-bottom: 16px; }
+p { margin-bottom: 16px; color: var(--text-secondary); }
+
+.lead { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); max-width: 640px; }
+.section-label { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: var(--transition); text-decoration: none; }
+.btn--primary { background: var(--gold); color: var(--bg-primary); }
+.btn--primary:hover { background: var(--gold-light); color: var(--bg-primary); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25); }
+.btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--border-gold); }
+.btn--outline:hover { background: var(--gold-glow); color: var(--gold-light); border-color: var(--gold); }
+.btn--sm { padding: 10px 24px; font-size: 0.85rem; }
+
+/* Navigation */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 23, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: var(--transition); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 72px; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.nav__logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+.nav__logo .logo-accent { color: var(--gold); }
+.nav__links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav__links a { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); transition: var(--transition); position: relative; }
+.nav__links a:hover, .nav__links a.active { color: var(--text-primary); }
+.nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: var(--transition); }
+.nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
+.nav__cta { display: flex; align-items: center; gap: 16px; }
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav__hamburger span { display: block; width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); }
+
+/* Page Header */
+.page-header {
+  padding: 160px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 60% 30%, rgba(212, 168, 83, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 70%, rgba(30, 58, 138, 0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.page-header h1 { margin-bottom: 24px; }
+.page-header h1 em { font-style: italic; color: var(--gold); }
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb .sep { opacity: 0.4; }
+
+/* Stats strip */
+.stats-strip {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stats-strip__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.stats-strip__item { padding: 28px 24px; text-align: center; border-right: 1px solid var(--border); transition: var(--transition); }
+.stats-strip__item:last-child { border-right: none; }
+.stats-strip__item:hover { background: var(--gold-glow); }
+.stats-strip__number { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; margin-bottom: 4px; }
+.stats-strip__label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+
+/* Feature sections — alternating layout */
+.feature-section { padding: 100px 0; }
+.feature-section--alt { background: var(--bg-secondary); }
+
+.feature-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.feature-block--reverse { direction: rtl; }
+.feature-block--reverse > * { direction: ltr; }
+
+.feature-block__content {}
+.feature-block__visual {}
+
+.feature-rate {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+  opacity: 0.15;
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.feature-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+.feature-card__rate {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.feature-card__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  display: block;
+}
+.feature-card__detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.feature-card__detail:last-child { border-bottom: none; }
+.feature-card__detail span:first-child { color: var(--text-muted); }
+.feature-card__detail span:last-child { color: var(--text-primary); font-weight: 500; }
+
+/* Pill tags */
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tag {
+  padding: 6px 14px;
+  background: var(--gold-glow);
+  border: 1px solid var(--border-gold);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+/* Comparison row */
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 120px);
+  gap: 0;
+  margin-top: 40px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.compare-row__header {
+  display: contents;
+}
+.compare-row__header > div {
+  padding: 14px 20px;
+  background: var(--bg-card);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.compare-row__header > div:first-child { text-align: left; }
+.compare-row__header > div.highlight { color: var(--gold); background: var(--gold-glow); }
+.compare-row__data { display: contents; }
+.compare-row__data > div {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.compare-row__data > div:first-child { text-align: left; justify-content: flex-start; color: var(--text-secondary); }
+.compare-row__data > div.highlight { color: var(--gold); font-weight: 700; background: var(--gold-glow); }
+.compare-row__data:last-child > div { border-bottom: none; }
+
+/* CTA Section */
+.cta-section { text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212, 168, 83, 0.06) 0%, transparent 70%); pointer-events: none; }
+.cta-section h2 { margin-bottom: 16px; }
+.cta-section .lead { margin: 0 auto 40px; text-align: center; }
+.btn-group { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+/* Footer */
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 64px 0 32px; }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer__brand p { font-size: 0.9rem; color: var(--text-muted); max-width: 300px; margin-top: 16px; }
+.footer h4 { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+.footer__links { list-style: none; }
+.footer__links li { margin-bottom: 10px; }
+.footer__links a { font-size: 0.9rem; color: var(--text-secondary); }
+.footer__links a:hover { color: var(--gold); }
+.footer__bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); }
+
+/* Highlight box */
+.highlight-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 32px 0 0;
+}
+.highlight-box p { margin-bottom: 0; color: var(--text-secondary); font-size: 0.9rem; }
+.highlight-box strong { color: var(--gold); }
+
+/* Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.animate-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.animate-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .feature-block { grid-template-columns: 1fr; gap: 40px; }
+  .feature-block--reverse { direction: ltr; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .compare-row { grid-template-columns: 1fr repeat(3, 90px); }
+}
+@media (max-width: 768px) {
+  .section, .feature-section { padding: 64px 0; }
+  .nav__links, .nav__cta .btn { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav.mobile-open .nav__links { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; }
+  .page-header { padding: 120px 0 48px; }
+  .stats-strip__inner { grid-template-columns: repeat(2, 1fr); }
+  .stats-strip__item:nth-child(2) { border-right: none; }
+  .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .btn-group { flex-direction: column; align-items: center; }
+  .compare-row { display: none; }
+}
+@media (max-width: 480px) {
+  .stats-strip__inner { grid-template-columns: 1fr; }
+  .stats-strip__item { border-right: none; border-bottom: 1px solid var(--border); }
+  .stats-strip__item:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="digital-wealth.html" class="active">Digital Wealth</a></li>
+        <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+        <li><a href="property.html">Property</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--primary btn--sm">Book a Call &rarr;</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>Digital Wealth</span>
+      </div>
+      <span class="section-label" style="animation: fadeInUp 0.5s ease-out both;">Digital Wealth</span>
+      <h1 style="animation: fadeInUp 0.5s ease-out 0.1s both;">A jurisdiction that works<br>for <em>digital wealth.</em></h1>
+      <p class="lead" style="margin-top: 20px; animation: fadeInUp 0.5s ease-out 0.2s both;">
+        Most tax systems were built for salaries and property. Yours isn&rsquo;t.
+        Cyprus is one of the few places in the world that actually works for digital income &mdash;
+        crypto, software, dividends, and IP.
+      </p>
+    </div>
+  </div>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip" role="region" aria-label="Key tax rates">
+    <div class="stats-strip__inner">
+      <div class="stats-strip__item">
+        <span class="stats-strip__number">8%</span>
+        <span class="stats-strip__label">Crypto Gains Tax</span>
+      </div>
+      <div class="stats-strip__item">
+        <span class="stats-strip__number">0%</span>
+        <span class="stats-strip__label">Dividend Tax (Non-Dom)</span>
+      </div>
+      <div class="stats-strip__item">
+        <span class="stats-strip__number">2.5%</span>
+        <span class="stats-strip__label">IP Box Effective Rate</span>
+      </div>
+      <div class="stats-strip__item">
+        <span class="stats-strip__number">&#8383;</span>
+        <span class="stats-strip__label">Buy Property with Crypto</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1: Crypto -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-block">
+        <div class="feature-block__content animate-in">
+          <span class="section-label">Cryptocurrency</span>
+          <h2>8% on gains.<br>0% if you hold.</h2>
+          <p>
+            Cyprus taxes crypto disposal &mdash; selling, swapping, spending &mdash; at a flat 8%.
+            No progressive scale, no wealth tax, no exit tax. And if you&rsquo;re holding
+            long-term, unrealized gains are never taxed.
+          </p>
+          <p>
+            Compare that to 30&ndash;50% in most of Europe. Or structure through a
+            Cyprus company and pay 12.5% corporate tax, then extract dividends tax-free
+            under non-dom status.
+          </p>
+          <div class="tag-list">
+            <span class="tag">BTC &bull; ETH &bull; SOL</span>
+            <span class="tag">DeFi &amp; Staking</span>
+            <span class="tag">No Exit Tax</span>
+            <span class="tag">No Wealth Tax</span>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Note:</strong> Cyprus crypto tax treatment is still evolving. Always confirm your specific situation with a qualified Cyprus tax advisor before restructuring.</p>
+          </div>
+        </div>
+        <div class="feature-block__visual animate-in">
+          <div class="feature-card">
+            <span class="feature-card__icon">&#8383;</span>
+            <div class="feature-card__rate">8%</div>
+            <span class="feature-card__label">Flat rate on disposal</span>
+            <div class="feature-card__detail">
+              <span>Unrealized gains</span>
+              <span>Never taxed</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Wealth tax</span>
+              <span>None</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Exit tax</span>
+              <span>None</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Inheritance tax</span>
+              <span>None</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Typical EU rate</span>
+              <span style="color: var(--text-muted);">30&ndash;50%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Non-Dom Dividends -->
+  <section class="feature-section feature-section--alt">
+    <div class="container">
+      <div class="feature-block feature-block--reverse">
+        <div class="feature-block__content animate-in">
+          <span class="section-label">Non-Dom Status</span>
+          <h2>0% on dividends<br>for 17 years.</h2>
+          <p>
+            Under Cyprus non-dom status, dividends paid from your Cyprus company are
+            completely exempt from tax for 17 years. No Special Defence Contribution,
+            no withholding, no hidden charges.
+          </p>
+          <p>
+            Structure your income correctly and keep what you earn. Any individual
+            who hasn&rsquo;t been a Cyprus tax resident for 17 of the preceding 20 years
+            automatically qualifies.
+          </p>
+          <div class="tag-list">
+            <span class="tag">0% Dividends</span>
+            <span class="tag">0% Interest Income</span>
+            <span class="tag">0% Foreign Rental</span>
+            <span class="tag">17-Year Exemption</span>
+          </div>
+        </div>
+        <div class="feature-block__visual animate-in">
+          <div class="feature-card">
+            <span class="feature-card__icon">&#127969;</span>
+            <div class="feature-card__rate">0%</div>
+            <span class="feature-card__label">Dividend tax for non-doms</span>
+            <div class="feature-card__detail">
+              <span>Duration</span>
+              <span>17 years</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Interest income</span>
+              <span>0%</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Foreign rental income</span>
+              <span>0%</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Qualification</span>
+              <span>Automatic</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Typical EU dividend tax</span>
+              <span style="color: var(--text-muted);">25&ndash;35%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: IP Box -->
+  <section class="feature-section">
+    <div class="container">
+      <div class="feature-block">
+        <div class="feature-block__content animate-in">
+          <span class="section-label">IP Box Regime</span>
+          <h2>2.5% on your<br>IP income.</h2>
+          <p>
+            Running an AI product, SaaS, or software business? The Cyprus IP Box regime
+            taxes qualifying intellectual property income at just 2.5% effective rate.
+            One of the lowest in the world &mdash; inside the EU.
+          </p>
+          <p>
+            This applies to licensing revenue, API access fees, software subscriptions,
+            and income from patents. If your business runs on code, Cyprus was built for you.
+          </p>
+          <div class="tag-list">
+            <span class="tag">AI &amp; LLM Products</span>
+            <span class="tag">SaaS &amp; APIs</span>
+            <span class="tag">Copyrighted Software</span>
+            <span class="tag">Patents</span>
+          </div>
+        </div>
+        <div class="feature-block__visual animate-in">
+          <div class="feature-card">
+            <span class="feature-card__icon">&#129302;</span>
+            <div class="feature-card__rate">2.5%</div>
+            <span class="feature-card__label">Effective IP income tax rate</span>
+            <div class="feature-card__detail">
+              <span>Standard corporate tax</span>
+              <span>12.5%</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>With IP Box</span>
+              <span>2.5% effective</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>EU compliant</span>
+              <span>Yes (OECD aligned)</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Qualifying income</span>
+              <span>Licensing, SaaS, APIs</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Typical EU corporate rate</span>
+              <span style="color: var(--text-muted);">20&ndash;30%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Buy with Crypto -->
+  <section class="feature-section feature-section--alt">
+    <div class="container">
+      <div class="feature-block feature-block--reverse">
+        <div class="feature-block__content animate-in">
+          <span class="section-label">Property &amp; Crypto</span>
+          <h2>Your crypto can<br>buy real estate.</h2>
+          <p>
+            A growing number of developers in Cyprus accept Bitcoin, Ethereum, and
+            stablecoins directly. We handle the legal and compliance side so the
+            transaction is clean, registered, and protected.
+          </p>
+          <p>
+            The property is legally formalized through a standard Sales Agreement and
+            registered with the Cyprus Land Registry &mdash; full legal title, just paid
+            a different way.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Bitcoin</span>
+            <span class="tag">Ethereum</span>
+            <span class="tag">USDT &bull; USDC</span>
+            <span class="tag">Full Legal Title</span>
+          </div>
+          <div style="margin-top: 32px;">
+            <a href="property.html" class="btn btn--outline">View Properties &rarr;</a>
+          </div>
+        </div>
+        <div class="feature-block__visual animate-in">
+          <div class="feature-card">
+            <span class="feature-card__icon">&#127968;</span>
+            <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text-primary); margin-bottom: 24px; line-height: 1.3;">Crypto &rarr; Property<br><span style="color: var(--gold);">Legally secured.</span></div>
+            <div class="feature-card__detail">
+              <span>Accepted currencies</span>
+              <span>BTC, ETH, USDT+</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Legal registration</span>
+              <span>Land Registry</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>AML/KYC</span>
+              <span>Required</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Min. for PR eligibility</span>
+              <span>&euro;300,000+</span>
+            </div>
+            <div class="feature-card__detail">
+              <span>Support provided</span>
+              <span>Legal &amp; compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section">
+    <div class="container">
+      <span class="section-label animate-in">Compare</span>
+      <h2 class="animate-in">How Cyprus stacks up<br>for digital income.</h2>
+      <p class="lead animate-in">Against the most common alternatives for digital wealth builders.</p>
+
+      <div class="animate-in">
+        <div class="compare-row">
+          <div class="compare-row__header">
+            <div></div>
+            <div class="highlight">Cyprus</div>
+            <div>Germany</div>
+            <div>UK</div>
+          </div>
+          <div class="compare-row__data">
+            <div>Crypto capital gains</div>
+            <div class="highlight">8%</div>
+            <div>Up to 45%</div>
+            <div>20%</div>
+          </div>
+          <div class="compare-row__data">
+            <div>Dividend tax</div>
+            <div class="highlight">0%</div>
+            <div>25%+</div>
+            <div>Up to 39.35%</div>
+          </div>
+          <div class="compare-row__data">
+            <div>IP / software income</div>
+            <div class="highlight">2.5%</div>
+            <div>30%+</div>
+            <div>25%</div>
+          </div>
+          <div class="compare-row__data">
+            <div>Wealth tax</div>
+            <div class="highlight">0%</div>
+            <div>0%</div>
+            <div>0%</div>
+          </div>
+          <div class="compare-row__data">
+            <div>Inheritance tax</div>
+            <div class="highlight">0%</div>
+            <div>Up to 50%</div>
+            <div>Up to 40%</div>
+          </div>
+          <div class="compare-row__data">
+            <div>Min. days for tax residency</div>
+            <div class="highlight">60</div>
+            <div>183</div>
+            <div>183</div>
+          </div>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 12px;">Figures are indicative. Tax situations vary by individual circumstances. Always consult a qualified tax advisor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section--alt">
+    <div class="container" style="position: relative; z-index: 1;">
+      <span class="section-label animate-in">Get Started</span>
+      <h2 class="animate-in">Not sure how this applies<br>to your situation?</h2>
+      <p class="lead animate-in">
+        Book a free consultation and we&rsquo;ll map it out together. We&rsquo;ll look at your
+        income sources, current structure, and show you exactly what Cyprus could mean for you.
+      </p>
+      <div class="btn-group animate-in">
+        <a href="contact.html" class="btn btn--primary">Book a Free Consultation &rarr;</a>
+        <a href="residency-tax.html" class="btn btn--outline">Residency &amp; Tax Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+          </a>
+          <p>Tax optimization, residency planning, and property investment for digital wealth builders. Based in Cyprus, serving clients globally.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer__links">
+            <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+            <li><a href="property.html">Property Investment</a></li>
+            <li><a href="digital-wealth.html">Digital Wealth Planning</a></li>
+            <li><a href="contact.html">Book a Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer__links">
+            <li><a href="residency-tax.html#non-dom">Non-Dom Guide</a></li>
+            <li><a href="residency-tax.html#60day">60-Day Rule</a></li>
+            <li><a href="property.html#crypto">Buy with Crypto</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Prime Cyprus. All rights reserved.</span>
+        <span>This website provides general information and is not financial, legal, or tax advice. Always consult qualified professionals for your specific situation.</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll Animations
+  const animateElements = document.querySelectorAll('.animate-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  animateElements.forEach(el => observer.observe(el));
+
+  // FAQ Accordion (if needed)
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Mobile Navigation
+  const hamburger = document.querySelector('.nav__hamburger');
+  const nav = document.querySelector('.nav');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => nav.classList.toggle('mobile-open'));
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.nav');
+    nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.06)';
+  });
+});
+</script>
+</body>
+</html>
