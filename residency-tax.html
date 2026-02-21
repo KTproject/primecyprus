@@ -75,6 +75,14 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
 .nav__links a:hover, .nav__links a.active { color: var(--text-primary); }
 .nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: var(--transition); }
 .nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
+.nav__dropdown { position: relative; }
+.nav__dropdown-trigger { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 0; background: none; border: none; font-family: inherit; transition: var(--transition); }
+.nav__dropdown:hover .nav__dropdown-trigger { color: var(--text-primary); }
+.nav__dropdown-trigger::after { content: ''; display: inline-block; width: 0; height: 0; margin-left: 4px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor; vertical-align: middle; }
+.nav__dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 8px; padding: 8px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; min-width: 160px; box-shadow: 0 12px 40px rgba(0,0,0,0.4); list-style: none; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; z-index: 100; }
+.nav__dropdown:hover .nav__dropdown-menu { opacity: 1; visibility: visible; }
+.nav__dropdown-menu a { display: block; padding: 10px 20px; font-size: 0.9rem; color: var(--text-secondary); white-space: nowrap; transition: var(--transition); }
+.nav__dropdown-menu a:hover { background: var(--gold-glow); color: var(--gold); }
 .nav__cta { display: flex; align-items: center; gap: 16px; }
 .nav__hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
 .nav__hamburger span { display: block; width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); }
@@ -161,6 +169,8 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   .nav__links, .nav__cta .btn { display: none; }
   .nav__hamburger { display: flex; }
   .nav.mobile-open .nav__links { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; }
+  .nav__dropdown-menu { position: static; transform: none; margin-top: 6px; margin-left: 0; opacity: 1; visibility: visible; box-shadow: none; border: none; padding-left: 12px; background: transparent; }
+  .nav__dropdown-trigger::after { display: none; }
   .page-header { padding: 120px 0 48px; }
   .topic-grid { grid-template-columns: 1fr 1fr; }
   .footer__grid { grid-template-columns: 1fr; gap: 32px; }
@@ -180,7 +190,13 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
       <ul class="nav__links">
         <li><a href="digital-wealth.html">Digital Wealth</a></li>
         <li><a href="residency-tax.html" class="active">Residency &amp; Tax</a></li>
-        <li><a href="properties.html">Property</a></li>
+        <li class="nav__dropdown">
+          <span class="nav__dropdown-trigger">Property</span>
+          <ul class="nav__dropdown-menu">
+            <li><a href="properties.html">For Sale</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+          </ul>
+        </li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>

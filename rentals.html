@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Properties – Prime Cyprus</title>
+  <title>Rentals – Prime Cyprus</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root {
-      --text-primary: #f1f5f9;
-      --gold: #d4a853;
-    }
     body {
       background: #0a0e17;
       color: #f1f5f9;
@@ -68,11 +64,6 @@
     .card h2 {
       margin: 0 0 6px;
       font-size: 1.2rem;
-      color: var(--text-primary);
-      transition: color 0.2s ease;
-    }
-    .card:hover h2 {
-      color: var(--gold);
     }
     .price {
       color: #d4a853;
@@ -129,14 +120,14 @@
   </style>
 </head>
 <body>
-  <h1>Properties</h1>
-  <p class="sub">Premium properties across Cyprus, updated in real time.</p>
+  <h1>Find your base in Cyprus</h1>
+  <p class="sub">Rent first. Experience the island. Then decide.</p>
 
-  <div id="grid" class="grid"><p class="status">Loading properties…</p></div>
+  <div id="grid" class="grid"><p class="status">Loading rentals…</p></div>
   <p id="status" class="status" style="display:none;"></p>
 
   <script>
-    const query = encodeURIComponent(`*[_type == "property"] | order(_createdAt desc) {
+    const query = encodeURIComponent(`*[_type == "rental"] | order(_createdAt desc) {
       _id,
       title,
       price,
@@ -146,8 +137,7 @@
       sizeSqm,
       description,
       featured,
-      "imageUrl": coalesce(mainImage.asset->url, image.asset->url, images[0].asset->url),
-      "slug": slug.current
+      "imageUrl": coalesce(mainImage.asset->url, image.asset->url, images[0].asset->url)
     }`);
 
     const endpoint = `https://7ic15vv6.api.sanity.io/v2021-10-21/data/query/production?query=${query}`;
@@ -157,52 +147,52 @@
       .then(data => {
         const grid = document.getElementById('grid');
         const status = document.getElementById('status');
-        const props = data.result || [];
+        const items = data.result || [];
 
-        if (!props.length) {
+        if (!items.length) {
           grid.innerHTML = '';
           status.style.display = 'block';
-          status.textContent = 'No properties found. Check back soon for new listings.';
+          status.textContent = 'No rentals found. Check back soon for new listings.';
           return;
         }
 
-        grid.innerHTML = props.map(p => {
-          const hasImage = !!p.imageUrl;
+        grid.innerHTML = items.map(r => {
+          const hasImage = !!r.imageUrl;
           const imgUrl = hasImage
-            ? `${p.imageUrl}?w=900&h=600&fit=crop&auto=format`
+            ? `${r.imageUrl}?w=900&h=600&fit=crop&auto=format`
             : '';
-          const priceText = typeof p.price === 'number'
-            ? `€${p.price.toLocaleString('en-US')}`
-            : (p.price || 'Price on application');
+          const priceText = typeof r.price === 'number'
+            ? `€${r.price.toLocaleString('en-US')} / month`
+            : (r.price || 'Price on application');
 
           const metaParts = [];
-          if (p.location) metaParts.push(p.location);
-          if (p.bedrooms) metaParts.push(`${p.bedrooms} bed${p.bedrooms > 1 ? 's' : ''}`);
-          if (p.bathrooms) metaParts.push(`${p.bathrooms} bath${p.bathrooms > 1 ? 's' : ''}`);
-          if (p.sizeSqm) metaParts.push(`${p.sizeSqm} m²`);
+          if (r.location) metaParts.push(r.location);
+          if (r.bedrooms) metaParts.push(`${r.bedrooms} bed${r.bedrooms > 1 ? 's' : ''}`);
+          if (r.bathrooms) metaParts.push(`${r.bathrooms} bath${r.bathrooms > 1 ? 's' : ''}`);
+          if (r.sizeSqm) metaParts.push(`${r.sizeSqm} m²`);
           const metaLine = metaParts.join(' · ');
 
           const pills = [];
-          if (p.featured) pills.push('Featured');
-          if (p.sizeSqm) pills.push(`${p.sizeSqm} m²`);
+          if (r.featured) pills.push('Featured');
+          if (r.sizeSqm) pills.push(`${r.sizeSqm} m²`);
 
           return `
-             <a class="card" href="property-detail.html?slug=${p.slug || ''}" style="text-decoration:none;display:block;">
-    ${hasImage ? `<img src="${imgUrl}" alt="${(p.title || 'Property in Cyprus').replace(/"/g, '&quot;')}" loading="lazy">` : ''}
-    ${p.featured ? '<div class="badge">Featured</div>' : ''}
-    <h2>${p.title || 'Property in Cyprus'}</h2>
-    <div class="price">${priceText}</div>
-    ${metaLine ? `<div class="meta">${metaLine}</div>` : ''}
-    ${p.description ? `<p class="description">${p.description}</p>` : ''}
-    ${pills.length ? `
-      <div class="pill-row">
-        ${pills.map(label => `<span class="pill">${label}</span>`).join('')}
-      </div>
-    ` : ''}
-    <div class="cta">
-      View Property →
-    </div>
-  </a>
+            <div class="card">
+              ${hasImage ? `<img src="${imgUrl}" alt="${(r.title || 'Rental in Cyprus').replace(/"/g, '&quot;')}" loading="lazy">` : ''}
+              ${r.featured ? '<div class="badge">Featured</div>' : ''}
+              <h2>${r.title || 'Rental in Cyprus'}</h2>
+              <div class="price">${priceText}</div>
+              ${metaLine ? `<div class="meta">${metaLine}</div>` : ''}
+              ${r.description ? `<p class="description">${r.description}</p>` : ''}
+              ${pills.length ? `
+                <div class="pill-row">
+                  ${pills.map(label => `<span class="pill">${label}</span>`).join('')}
+                </div>
+              ` : ''}
+              <a href="contact.html?rental=${encodeURIComponent(r._id || '')}" class="cta">
+                Enquire Now →
+              </a>
+            </div>
           `;
         }).join('');
       })
@@ -211,7 +201,7 @@
         const status = document.getElementById('status');
         grid.innerHTML = '';
         status.style.display = 'block';
-        status.textContent = 'Error loading properties: ' + e.message;
+        status.textContent = 'Error loading rentals: ' + e.message;
       });
   </script>
 </body>
