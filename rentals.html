@@ -130,14 +130,14 @@
     const query = encodeURIComponent(`*[_type == "rental"] | order(_createdAt desc) {
       _id,
       title,
-      price,
+      pricePerMonth,
       location,
       bedrooms,
       bathrooms,
-      sizeSqm,
+      sqm,
       description,
       featured,
-      "imageUrl": coalesce(mainImage.asset->url, image.asset->url, images[0].asset->url)
+      "imageUrl": images[0].asset->url
     }`);
 
     const endpoint = `https://7ic15vv6.api.sanity.io/v2021-10-21/data/query/production?query=${query}`;
@@ -161,20 +161,20 @@
           const imgUrl = hasImage
             ? `${r.imageUrl}?w=900&h=600&fit=crop&auto=format`
             : '';
-          const priceText = typeof r.price === 'number'
-            ? `€${r.price.toLocaleString('en-US')} / month`
-            : (r.price || 'Price on application');
+          const priceText = typeof r.pricePerMonth === 'number'
+            ? `€${r.pricePerMonth.toLocaleString('en-US')} / month`
+            : (r.pricePerMonth || 'Price on application');
 
           const metaParts = [];
           if (r.location) metaParts.push(r.location);
           if (r.bedrooms) metaParts.push(`${r.bedrooms} bed${r.bedrooms > 1 ? 's' : ''}`);
           if (r.bathrooms) metaParts.push(`${r.bathrooms} bath${r.bathrooms > 1 ? 's' : ''}`);
-          if (r.sizeSqm) metaParts.push(`${r.sizeSqm} m²`);
+          if (r.sqm) metaParts.push(`${r.sqm} m²`);
           const metaLine = metaParts.join(' · ');
 
           const pills = [];
           if (r.featured) pills.push('Featured');
-          if (r.sizeSqm) pills.push(`${r.sizeSqm} m²`);
+          if (r.sqm) pills.push(`${r.sqm} m²`);
 
           return `
             <div class="card">
