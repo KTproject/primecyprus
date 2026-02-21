@@ -335,34 +335,45 @@
 
   /* Timeline */
   .timeline {
-    border-left: 1px solid var(--border);
-    padding-left: 20px;
     margin-top: 24px;
   }
   .timeline-item {
-    margin-bottom: 20px;
-    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .timeline-item:last-child {
+    margin-bottom: 0;
   }
   .timeline-dot {
-    position: absolute;
-    left: -11px;
-    top: 4px;
-    width: 14px; height: 14px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--bg-primary);
     border: 2px solid var(--gold);
+    margin-top: 5px;
   }
-  .timeline-item h4 {
+  .timeline-item__content {
+    flex: 1;
+    min-width: 0;
+    padding-left: 12px;
+  }
+  .timeline-item__content h4 {
     font-family: var(--font-body);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--text-muted);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
-  .timeline-item p {
+  .timeline-item__content p {
     font-size: 0.95rem;
     margin-bottom: 0;
+    line-height: 1.6;
   }
 
   /* Team Members */
@@ -613,18 +624,24 @@
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <h4>From founders, for founders</h4>
-              <p>We started as founders relocating our own companies and portfolios to Cyprus. Every structure we propose is one we would be comfortable using ourselves.</p>
+              <div class="timeline-item__content">
+                <h4>From founders, for founders</h4>
+                <p>We started as founders relocating our own companies and portfolios to Cyprus. Every structure we propose is one we would be comfortable using ourselves.</p>
+              </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <h4>Global, remote‑first clients</h4>
-              <p>Our clients live in airports and on Zoom calls &mdash; not in one office. We build plans around remote income, distributed teams, and digital assets.</p>
+              <div class="timeline-item__content">
+                <h4>Global, remote‑first clients</h4>
+                <p>Our clients live in airports and on Zoom calls &mdash; not in one office. We build plans around remote income, distributed teams, and digital assets.</p>
+              </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <h4>On‑the‑ground execution</h4>
-              <p>From bank appointments to property inspections, we work with vetted local professionals in Cyprus so your plan is not just optimized on paper, but implemented in the real world.</p>
+              <div class="timeline-item__content">
+                <h4>On‑the‑ground execution</h4>
+                <p>From bank appointments to property inspections, we work with vetted local professionals in Cyprus so your plan is not just optimized on paper, but implemented in the real world.</p>
+              </div>
             </div>
           </div>
         </div>
