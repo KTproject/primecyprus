@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights — Prime Cyprus | Cyprus Tax & Residency Guides</title>
+  <meta name="description" content="Expert guides on Cyprus crypto tax, the 60-day rule, non-dom status, and residency planning. Stay informed on Cyprus tax optimization for digital wealth builders.">
+
+  <!-- FAQ Schema (AEO) — one FAQPage covering all article topics -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Cyprus crypto tax rate in 2026 and what does the 8% flat rate mean for investors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cyprus’s 2026 tax reform introduced a flat 8% rate on cryptocurrency disposals, making it one of the most attractive EU jurisdictions for crypto investors. The rate applies to capital gains from the disposal of crypto assets by Cyprus tax residents and qualifying non-doms. This compares favourably to most European countries, which tax crypto gains at higher income or capital gains rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who qualifies for the 8% flat crypto tax in Cyprus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cyprus tax residents and individuals who qualify for Cyprus non-domiciled status and meet the 60-day rule (or 183-day rule) can benefit from the 8% flat rate on crypto disposals. You must be tax resident in Cyprus and not tax resident elsewhere in the same year to qualify."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you become a Cyprus tax resident with the 60-day rule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can become a Cyprus tax resident under the 60-day rule by spending at least 60 days in Cyprus in the tax year, not being tax resident in any other country, not spending more than 183 days in any other single country, and maintaining a permanent residence and business activity in Cyprus (for example a Cyprus-registered company). You do not need to live in Cyprus full-time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the 60-day rule in Cyprus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 60-day rule is an alternative to the standard 183-day rule for Cyprus tax residency. If you spend at least 60 days in Cyprus in a tax year, are not tax resident elsewhere, do not spend more than 183 days in any other country, and have a permanent home and business ties in Cyprus, you can be treated as a Cyprus tax resident for that year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is non-dom status in Cyprus and how does it work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cyprus non-domiciled (non-dom) status allows individuals who are tax resident in Cyprus but not domiciled there to be exempt from tax on dividends, interest, and most capital gains from abroad. To qualify you must be a Cyprus tax resident and not have a Cyprus domicile of origin. Once established, non-dom status can mean 0% tax on overseas investment income for qualifying individuals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you get 0% tax on dividends in Cyprus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Under Cyprus non-domiciled status, dividends and interest from abroad are not subject to Cyprus tax. You need to be a Cyprus tax resident and qualify as non-domiciled (typically by not having been born in Cyprus or not having a Cyprus domicile of origin). This 0% treatment applies to overseas-sourced dividends and interest, making Cyprus highly attractive for investors."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Speakable schema (AEO) — marks content suitable for voice assistants -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Insights — Prime Cyprus | Cyprus Tax & Residency Guides",
+    "description": "Expert guides on Cyprus crypto tax, the 60-day rule, non-dom status, and residency planning.",
+    "url": "https://primecyprus.com/insights.html",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".speakable"]
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* === PRIME CYPRUS — Dark Premium Wealth Aesthetic === */
+
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #161e2e;
+  --bg-card-hover: #1c2640;
+  --bg-accent: #1a1f35;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --gold: #d4a853;
+  --gold-light: #e8c97a;
+  --gold-dark: #b8922e;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-gold: rgba(212, 168, 83, 0.25);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --max-width: 1200px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+a { color: var(--gold); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--gold-light); }
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; }
+.section--alt { background: var(--bg-secondary); }
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 24px; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin-bottom: 16px; }
+p { margin-bottom: 16px; color: var(--text-secondary); }
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn--primary {
+  background: var(--gold);
+  color: var(--bg-primary);
+}
+.btn--primary:hover {
+  background: var(--gold-light);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--border-gold);
+}
+.btn--outline:hover {
+  background: var(--gold-glow);
+  color: var(--gold-light);
+  border-color: var(--gold);
+}
+.btn--sm { padding: 10px 24px; font-size: 0.85rem; }
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10, 14, 23, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav__logo .logo-accent { color: var(--gold); }
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav__links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  position: relative;
+}
+.nav__links a:hover, .nav__links a.active { color: var(--text-primary); }
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--gold);
+  transition: var(--transition);
+}
+.nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
+
+.nav__dropdown { position: relative; }
+.nav__dropdown-trigger {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  transition: var(--transition);
+}
+.nav__dropdown:hover .nav__dropdown-trigger { color: var(--text-primary); }
+.nav__dropdown-trigger::after {
+  content: '';
+  display: inline-block;
+  width: 0; height: 0;
+  margin-left: 4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  vertical-align: middle;
+}
+.nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  padding: 8px 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 160px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 100;
+}
+.nav__dropdown:hover .nav__dropdown-menu { opacity: 1; visibility: visible; }
+.nav__dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.nav__dropdown-menu a:hover {
+  background: var(--gold-glow);
+  color: var(--gold);
+}
+
+.nav__cta { display: flex; align-items: center; gap: 16px; }
+
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav__hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--text-primary);
+  transition: var(--transition);
+}
+
+/* Page header */
+.page-header {
+  padding: 140px 0 64px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 { margin-bottom: 16px; }
+.page-header .lead { margin: 0 auto; text-align: center; }
+
+/* Article card image placeholder — dark navy with subtle gold tint */
+.article-card__image {
+  height: 200px;
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background-image: linear-gradient(135deg, #0d1321 0%, #1a2332 40%, #152238 70%, #0d1321 100%),
+    linear-gradient(180deg, transparent 0%, rgba(212, 168, 83, 0.06) 100%);
+  flex-shrink: 0;
+}
+
+/* Featured article card — full width */
+.featured-article {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  margin-top: 48px;
+}
+.featured-article::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 1;
+}
+.featured-article:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+}
+.featured-article:hover::before { opacity: 1; }
+.featured-article .article-card__image {
+  height: 280px;
+  width: 100%;
+}
+.featured-article__body {
+  padding: 40px 48px 48px;
+}
+.featured-article .article-card__category {
+  margin-bottom: 12px;
+}
+.featured-article h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 16px;
+}
+.featured-article .article-card__excerpt {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 24px;
+  max-width: 720px;
+}
+.featured-article .article-card__meta {
+  margin-bottom: 24px;
+}
+
+/* Article card — grid item */
+.article-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.article-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 1;
+}
+.article-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+}
+.article-card:hover::before { opacity: 1; }
+.article-card__body {
+  padding: 24px 28px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.article-card__category {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+}
+.article-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.article-card h3 a {
+  color: var(--text-primary);
+}
+.article-card h3 a:hover {
+  color: var(--gold);
+}
+.article-card__excerpt {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.article-card__meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.article-card__link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.article-card__link:hover { gap: 10px; color: var(--gold-light); }
+
+/* Question-based H2 in excerpts (AEO) */
+.article-card__excerpt h2,
+.excerpt-question {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0 0 8px 0;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+.article-card__excerpt h2 + p,
+.excerpt-question + p { margin-top: 0; }
+.speakable { margin-bottom: 16px; }
+.speakable:last-child { margin-bottom: 0; }
+
+/* Insights grid — 3 columns */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 64px 0 32px;
+  margin-top: 80px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer__brand p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 300px;
+  margin-top: 16px;
+}
+.footer h4 {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.footer__links { list-style: none; }
+.footer__links li { margin-bottom: 10px; }
+.footer__links a { font-size: 0.9rem; color: var(--text-secondary); }
+.footer__links a:hover { color: var(--gold); }
+.footer__bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .insights-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .nav__links, .nav__cta .btn { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav.mobile-open .nav__links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px; left: 0; right: 0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+    padding: 24px;
+    gap: 20px;
+  }
+  .nav__dropdown-menu {
+    position: static;
+    transform: none;
+    margin-top: 6px;
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    padding-left: 12px;
+    background: transparent;
+  }
+  .nav__dropdown-trigger::after { display: none; }
+  .page-header { padding: 120px 0 48px; }
+  .featured-article__body { padding: 28px 24px 32px; }
+  .featured-article .article-card__image { height: 200px; }
+  .insights-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="digital-wealth.html">Digital Wealth</a></li>
+        <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+        <li class="nav__dropdown">
+          <span class="nav__dropdown-trigger">Property</span>
+          <ul class="nav__dropdown-menu">
+            <li><a href="properties.html">For Sale</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tax-calculator.html">Tax Calculator</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--primary btn--sm">Book a Call &rarr;</a>
+      </div>
+
+      <button class="nav__hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <div class="container">
+      <span class="section-label">Resources</span>
+      <h1>Insights</h1>
+      <p class="lead">Expert guides on Cyprus tax, residency, and wealth planning for digital builders.</p>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="section">
+    <div class="container">
+
+      <!-- Featured article -->
+      <article class="featured-article">
+        <div class="article-card__image" aria-hidden="true"></div>
+        <div class="featured-article__body">
+          <span class="article-card__category">Crypto Tax</span>
+          <h2><a href="#">Cyprus Crypto Tax 2026: What the 8% Flat Rate Means for Investors</a></h2>
+          <div class="article-card__excerpt speakable">
+            <h2 class="excerpt-question">What is the Cyprus crypto tax rate in 2026?</h2>
+            <p>Cyprus’s 2026 tax reform introduced a flat 8% rate on cryptocurrency disposals, making it one of the most attractive EU jurisdictions for crypto investors.</p>
+            <h2 class="excerpt-question">Who qualifies for the 8% flat rate on crypto?</h2>
+            <p>We break down who qualifies, how gains are calculated, and how this compares to holding in other countries.</p>
+          </div>
+          <span class="article-card__meta">8 min read</span>
+          <a href="#" class="article-card__link">Read More &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Article grid -->
+      <div class="insights-grid">
+        <article class="article-card">
+          <div class="article-card__image" aria-hidden="true"></div>
+          <div class="article-card__body">
+            <span class="article-card__category">Residency</span>
+            <h3><a href="#">The 60-Day Rule Explained: How to Become a Cyprus Tax Resident</a></h3>
+            <div class="article-card__excerpt speakable">
+              <h2 class="excerpt-question">How do you become a Cyprus tax resident with the 60-day rule?</h2>
+              <p>You don’t need to live in Cyprus full-time. The 60-day rule lets you qualify with just 60 days on the island per year—if you meet the other conditions. Here’s how it works and what to plan for.</p>
+            </div>
+            <span class="article-card__meta">6 min read</span>
+            <a href="#" class="article-card__link">Read More &rarr;</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card__image" aria-hidden="true"></div>
+          <div class="article-card__body">
+            <span class="article-card__category">Non-Dom</span>
+            <h3><a href="#">Non-Dom Status in Cyprus: Your Complete Guide</a></h3>
+            <div class="article-card__excerpt speakable">
+              <h2 class="excerpt-question">What is non-dom status in Cyprus and how does it work?</h2>
+              <p>Cyprus non-domiciled status can mean 0% tax on dividends, interest, and capital gains from abroad. Learn who can apply, how to maintain it, and how it fits into a broader Cyprus tax strategy.</p>
+            </div>
+            <span class="article-card__meta">10 min read</span>
+            <a href="#" class="article-card__link">Read More &rarr;</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card__image" aria-hidden="true"></div>
+          <div class="article-card__body">
+            <span class="article-card__category">Crypto Tax</span>
+            <h3><a href="#">Cyprus Crypto Tax 2026: What the 8% Flat Rate Means for Investors</a></h3>
+            <div class="article-card__excerpt speakable">
+              <h2 class="excerpt-question">What does the 8% Cyprus crypto tax mean for investors?</h2>
+              <p>Cyprus’s 2026 tax reform introduced a flat 8% rate on cryptocurrency disposals, making it one of the most attractive EU jurisdictions for crypto investors.</p>
+            </div>
+            <span class="article-card__meta">8 min read</span>
+            <a href="#" class="article-card__link">Read More &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+          </a>
+          <p>Tax optimization, residency planning, and property investment for digital wealth builders. Based in Cyprus, serving clients globally.</p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul class="footer__links">
+            <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+            <li><a href="properties.html">Property Investment</a></li>
+            <li><a href="digital-wealth.html">Digital Wealth Planning</a></li>
+            <li><a href="contact.html">Book a Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer__links">
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="residency-tax.html#non-dom">Non-Dom Guide</a></li>
+            <li><a href="residency-tax.html#60day">60-Day Rule</a></li>
+            <li><a href="properties.html#crypto">Buy with Crypto</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="tax-calculator.html">Tax Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="tax-calculator.html">Tax Calculator</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display: flex; gap: 20px; margin-bottom: 32px;">
+        <a href="https://linkedin.com/company/109455289" target="_blank" rel="noopener" style="color: var(--text-muted); transition: var(--transition);" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://x.com/primecyprus" target="_blank" rel="noopener" style="color: var(--text-muted); transition: var(--transition);" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://instagram.com/primecyprusgroup" target="_blank" rel="noopener" style="color: var(--text-muted); transition: var(--transition);" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Prime Cyprus. All rights reserved.</span>
+        <span>This website provides general information and is not financial, legal, or tax advice. Always consult qualified professionals for your specific situation.</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Navigation
+  const hamburger = document.querySelector('.nav__hamburger');
+  const nav = document.querySelector('.nav');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('mobile-open');
+    });
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const navEl = document.querySelector('.nav');
+    if (window.scrollY > 50) {
+      navEl.style.borderBottomColor = 'rgba(255,255,255,0.08)';
+    } else {
+      navEl.style.borderBottomColor = 'rgba(255,255,255,0.06)';
+    }
+  });
+});
+</script>
+</body>
+</html>
