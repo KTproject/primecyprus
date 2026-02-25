@@ -105,3 +105,10 @@ Cyprus is not just a tax address. Lead with the life:
 ## SEO / Metadata Notes
 - Crypto, blockchain, digital assets, non-dom, Cyprus residency, tax optimization — all fine in metadata
 - Target keywords: Cyprus residency for crypto investors, Cyprus tax for tech founders, buy property Cyprus crypto, non-dom status Cyprus, relocate to Cyprus digital nomad
+
+
+Lighter color scheme (cream/copper vs dark navy)
+Different audience framing (browsing/lifestyle vs wealth optimization)
+Nav pattern (search-centered, no CTA links)
+Card design conventions
+What's shared (fonts, gold accent, logo DNA, footer link back to main site)
