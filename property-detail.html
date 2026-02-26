@@ -116,13 +116,6 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
 /* Content layout */
 .property-body { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; padding-bottom: 80px; }
 
-/* Stats row */
-.stats-row { display: flex; gap: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 40px; overflow: hidden; }
-.stat-item { flex: 1; padding: 20px 24px; text-align: center; border-right: 1px solid var(--border); }
-.stat-item:last-child { border-right: none; }
-.stat-item__value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gold); display: block; }
-.stat-item__label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
-
 /* Description */
 .property-description h2 { font-size: 1.4rem; margin-bottom: 16px; color: var(--text-primary); }
 .property-description p { color: var(--text-secondary); line-height: 1.9; }
@@ -213,8 +206,6 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   .nav__dropdown-trigger::after { display: none; }
   .gallery__main { height: 280px; }
   .gallery__thumbs { grid-template-columns: repeat(3, 1fr); }
-  .stats-row { flex-wrap: wrap; }
-  .stat-item { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
   .details-grid { grid-template-columns: 1fr; }
   .detail-item { border-right: none; }
   .detail-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
@@ -246,8 +237,6 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
         </li>
         <li><a href="about.html">About</a></li>
       </ul>
-      <div class="nav__cta">
-        <a href="contact.html" class="btn btn--primary btn--sm">Get in Touch &rarr;</a>
       </div>
       <button class="nav__hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -300,9 +289,6 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
       <div class="property-body">
 
         <div class="property-main">
-          <!-- Stats -->
-          <div class="stats-row" id="statsRow"></div>
-
           <!-- Description -->
           <div class="property-description">
             <h2>About this property</h2>
@@ -478,20 +464,6 @@ function renderProperty(p) {
     main.innerHTML = `<div class="gallery__main--placeholder">🏠</div>`;
     thumbs.style.display = 'none';
   }
-
-  // Stats
-  const stats = [];
-  if (p.bedrooms) stats.push({ value: p.bedrooms, label: 'Bedrooms' });
-  if (p.bathrooms) stats.push({ value: p.bathrooms, label: 'Bathrooms' });
-  if (p.sqm) stats.push({ value: p.sqm + ' m²', label: 'Floor Area' });
-  if (p.yearBuilt) stats.push({ value: p.yearBuilt, label: 'Year Built' });
-
-  document.getElementById('statsRow').innerHTML = stats.map(s =>
-    `<div class="stat-item">
-      <span class="stat-item__value">${s.value}</span>
-      <span class="stat-item__label">${s.label}</span>
-    </div>`
-  ).join('');
 
   // Description
   const desc = document.getElementById('propDescription');
