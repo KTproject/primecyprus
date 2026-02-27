@@ -333,12 +333,59 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
 
 /* Page header */
 .page-header {
-  padding: 140px 0 64px;
-  text-align: center;
+  padding: 48px 0 8px;
   border-bottom: 1px solid var(--border);
 }
-.page-header h1 { margin-bottom: 16px; }
-.page-header .lead { margin: 0 auto; text-align: center; }
+.page-header__inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  max-height: 100px;
+}
+.page-header__left h1 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: var(--font-body);
+}
+.page-header__search {
+  max-width: 320px;
+  width: 100%;
+  margin-top: 32px;
+}
+.page-header__search-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--bg-card);
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+.page-header__search-input input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+.page-header__search-input input::placeholder {
+  color: var(--text-muted);
+}
+.page-header__search-input input:focus {
+  outline: none;
+}
+.page-header__search-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
 
 /* Article card image placeholder — dark navy with subtle gold tint */
 .article-card__image {
@@ -500,6 +547,10 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   margin-top: 48px;
 }
 
+.insights-main {
+  padding-top: 32px;
+}
+
 /* Footer */
 .footer {
   background: var(--bg-secondary);
@@ -621,15 +672,26 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
 
   <!-- Page header -->
   <header class="page-header">
-    <div class="container">
-      <span class="section-label">Resources</span>
-      <h1>Insights</h1>
-      <p class="lead">Expert guides on Cyprus tax, residency, and wealth planning for digital builders.</p>
+    <div class="container page-header__inner">
+      <div class="page-header__left">
+        <h1>Insights</h1>
+      </div>
+      <form class="page-header__search" role="search">
+        <div class="page-header__search-input">
+          <span class="page-header__search-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"></circle>
+              <line x1="15.5" y1="15.5" x2="20" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+            </svg>
+          </span>
+          <input type="search" placeholder="Search articles..." aria-label="Search articles">
+        </div>
+      </form>
     </div>
   </header>
 
   <!-- Main content -->
-  <main class="section">
+  <main class="section insights-main">
     <div class="container">
 
       <!-- Featured article -->
