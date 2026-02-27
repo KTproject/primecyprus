@@ -88,7 +88,7 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
 .nav__hamburger span { display: block; width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); }
 
 /* Page header */
-.page-header { padding: 160px 0 80px; position: relative; overflow: hidden; }
+.page-header { padding: 96px 0 80px; position: relative; overflow: hidden; }
 .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 60% 30%, rgba(212, 168, 83, 0.05) 0%, transparent 60%); pointer-events: none; }
 .page-header h1 em { font-style: italic; color: var(--gold); }
 .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
@@ -171,7 +171,7 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   .nav.mobile-open .nav__links { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; }
   .nav__dropdown-menu { position: static; transform: none; margin-top: 6px; margin-left: 0; opacity: 1; visibility: visible; box-shadow: none; border: none; padding-left: 12px; background: transparent; }
   .nav__dropdown-trigger::after { display: none; }
-  .page-header { padding: 120px 0 48px; }
+  .page-header { padding: 96px 0 48px; }
   .topic-grid { grid-template-columns: 1fr 1fr; }
   .footer__grid { grid-template-columns: 1fr; gap: 32px; }
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
@@ -212,11 +212,6 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   <!-- Page Header -->
   <div class="page-header">
     <div class="container">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="sep">/</span>
-        <span>Residency &amp; Tax</span>
-      </div>
       <span class="section-label" style="animation: fadeInUp 0.5s ease-out both;">Residency &amp; Tax</span>
       <h1 style="animation: fadeInUp 0.5s ease-out 0.1s both; margin-bottom: 20px;">Structure your life.<br><em>Keep what you build.</em></h1>
       <p class="lead" style="animation: fadeInUp 0.5s ease-out 0.2s both;">
