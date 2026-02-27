@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enquire – Prime Cyprus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-primary:#0a0e17;--bg-secondary:#111827;--bg-card:#161e2e;--bg-card-hover:#1c2640;
+      --text-primary:#f1f5f9;--text-secondary:#94a3b8;--text-muted:#64748b;
+      --gold:#d4a853;--gold-light:#e8c97a;--gold-glow:rgba(212,168,83,0.15);
+      --border:rgba(255,255,255,0.06);--border-gold:rgba(212,168,83,0.25);
+      --font-display:'Playfair Display',Georgia,serif;--font-body:'DM Sans',sans-serif;
+      --max-width:1200px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);line-height:1.7;font-size:16px;}
+    a{color:inherit;text-decoration:none;}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,14,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:72px;}
+    .nav__inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+    .nav__logo{font-family:var(--font-display);font-size:1.4rem;font-weight:700;display:flex;align-items:center;gap:10px;}
+    .nav__logo .logo-accent{color:var(--gold);}
+    .nav__links{display:flex;gap:36px;list-style:none;}
+    .nav__links a{font-size:0.9rem;font-weight:500;color:var(--text-secondary);position:relative;}
+    .nav__links a:hover,.nav__links a.active{color:var(--text-primary);}
+    .nav__links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--gold);transition:var(--transition);}
+    .nav__links a:hover::after,.nav__links a.active::after{width:100%;}
+    .nav__dropdown{position:relative;}
+    .nav__cta{display:flex;align-items:center;gap:16px;}
+    .nav__hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .nav__hamburger span{width:24px;height:2px;background:var(--text-primary);}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 24px;}
+    .page-header{padding:140px 0 60px;text-align:center;}
+    h1{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,4.2rem);margin-bottom:12px;}
+    .property-name{color:var(--gold);font-size:1.15rem;margin-top:8px;}
+    .form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:48px;max-width:620px;margin:0 auto 80px;}
+    input,textarea{width:100%;background:#0f172a;border:1px solid var(--border);border-radius:8px;padding:16px;color:var(--text-primary);margin-bottom:24px;font-size:1rem;}
+    textarea{height:140px;resize:vertical;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--gold);color:var(--bg-primary);font-weight:600;border-radius:6px;cursor:pointer;transition:var(--transition);}
+    .btn:hover{background:var(--gold-light);transform:translateY(-2px);}
+    .chat-btn{margin-top:32px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);}
+    .chat-btn:hover{background:var(--gold-glow);}
+    .footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:64px 0 32px;}
+    .footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+    .footer h4{font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;}
+    .footer__links{list-style:none;}
+    .footer__links a{font-size:0.9rem;color:var(--text-secondary);}
+    .footer__links a:hover{color:var(--gold);}
+    .footer__bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-muted);}
+    #chatModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;}
+    .chat-box{background:var(--bg-card);width:90%;max-width:520px;border-radius:16px;overflow:hidden;height:620px;display:flex;flex-direction:column;}
+    .chat-header{padding:20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+    #chatMessages{flex:1;padding:24px;overflow-y:auto;}
+    .chat-input-area{padding:20px;border-top:1px solid var(--border);display:flex;gap:12px;}
+    @media(max-width:768px){
+      .nav__links,.nav__cta .btn{display:none;}
+      .nav__hamburger{display:flex;}
+      .nav.mobile-open .nav__links{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--bg-primary);padding:24px;gap:20px;}
+      .footer__grid{grid-template-columns:1fr;gap:32px;}
+      .footer__bottom{flex-direction:column;gap:16px;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span></a>
+      <ul class="nav__links">
+        <li><a href="tax-calculator.html">Tax Calculator</a></li>
+        <li><a href="digital-wealth.html">Digital Wealth</a></li>
+        <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+        <li class="nav__dropdown">
+          <span class="nav__dropdown-trigger">Properties</span>
+          <ul class="nav__dropdown-menu">
+            <li><a href="properties.html">Properties for Sale</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+            <li><a href="property-management.html">Property Management</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--primary btn--sm">Get in Touch →</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Enquire about this property</h1>
+      <div id="propertyName" class="property-name"></div>
+    </div>
+
+    <div class="form-card">
+      <form id="enquiryForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="property_slug" id="hiddenSlug">
+        <input type="hidden" name="property_title" id="hiddenTitle">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message or questions" required></textarea>
+        <button type="submit" class="btn">Send enquiry →</button>
+      </form>
+
+      <button onclick="openChat()" class="btn chat-btn">Start AI chat about this property</button>
+    </div>
+  </div>
+
+  <!-- CHAT MODAL -->
+  <div id="chatModal">
+    <div class="chat-box">
+      <div class="chat-header">
+        <strong>AI Assistant • Prime Cyprus</strong>
+        <span onclick="closeChat()" style="cursor:pointer;font-size:1.4rem;">✕</span>
+      </div>
+      <div id="chatMessages"></div>
+      <div class="chat-input-area">
+        <input id="chatInput" placeholder="Ask anything about this property..." style="flex:1;background:#0f172a;border:1px solid var(--border);padding:14px;border-radius:8px;color:var(--text-primary);">
+        <button onclick="sendChat()" class="btn" style="padding:14px 28px;">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER (exact copy from property-detail.html) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo"><span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span></a>
+          <p>Tax optimization, residency planning, and property investment for digital wealth builders. Based in Cyprus, serving clients globally.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer__links">
+            <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+            <li><a href="properties.html">Property Investment</a></li>
+            <li><a href="digital-wealth.html">Digital Wealth Planning</a></li>
+            <li><a href="contact.html">Book a Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer__links">
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="residency-tax.html#non-dom">Non-Dom Guide</a></li>
+            <li><a href="residency-tax.html#60day">60-Day Rule</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Prime Cyprus. All rights reserved.</span>
+        <span>General information only — not legal, tax, or financial advice.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const SANITY_PROJECT_ID = '7ic15vv6';
+    const SANITY_DATASET = 'production';
+    const SANITY_API_VERSION = '2024-01-01';
+
+    function getSlugFromURL(){ 
+      return new URLSearchParams(window.location.search).get('slug'); 
+    }
+
+    async function fetchPropertyTitle(slug){
+      if(!slug) return "this property";
+      const query = encodeURIComponent(`*[_type == "property" && slug.current == "${slug}"][0]{title}`);
+      const url = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${query}`;
+      try{
+        const res = await fetch(url);
+        const data = await res.json();
+        return data.result ? data.result.title : "this property";
+      }catch(e){ return "this property"; }
+    }
+
+    async function init(){
+      const slug = getSlugFromURL();
+      document.getElementById('hiddenSlug').value = slug || '';
+      const title = await fetchPropertyTitle(slug);
+      document.getElementById('hiddenTitle').value = title;
+      document.getElementById('propertyName').textContent = `I'm interested in “${title}”`;
+    }
+
+    // Chat
+    function openChat(){
+      document.getElementById('chatModal').style.display = 'flex';
+      const title = document.getElementById('hiddenTitle').value || 'this property';
+      document.getElementById('chatMessages').innerHTML = `
+        <div style="margin-bottom:16px;"><span style="background:#1c2640;color:#e8c97a;padding:12px 18px;border-radius:12px;display:inline-block;">Hi! I'm your AI assistant for <strong>${title}</strong>.<br><br>• Video tour<br>• Call +357 XX XXX XXX<br>• Book a viewing<br>• Expected rental income & tax breakdown<br><br>What would you like to know?</span></div>`;
+    }
+    function closeChat(){ document.getElementById('chatModal').style.display='none'; }
+    function sendChat(){
+      const input = document.getElementById('chatInput');
+      if(!input.value.trim()) return;
+      const msg = document.createElement('div');
+      msg.style.textAlign='right'; msg.style.marginBottom='16px';
+      msg.innerHTML = `<span style="background:var(--gold);color:#0a0e17;padding:12px 18px;border-radius:12px;display:inline-block;">${input.value}</span>`;
+      document.getElementById('chatMessages').appendChild(msg);
+      setTimeout(()=>{ 
+        const reply = document.createElement('div');
+        reply.style.marginBottom='16px';
+        reply.innerHTML = `<span style="background:#1c2640;color:#e8c97a;padding:12px 18px;border-radius:12px;display:inline-block;">Understood. Here's the latest info on that...</span>`;
+        document.getElementById('chatMessages').appendChild(reply);
+        reply.scrollIntoView();
+      },700);
+      input.value='';
+    }
+
+    // Hamburger
+    document.addEventListener('DOMContentLoaded', () => {
+      const ham = document.querySelector('.nav__hamburger');
+      const nav = document.querySelector('.nav');
+      if(ham) ham.addEventListener('click', () => nav.classList.toggle('mobile-open'));
+      init();
+    });
+  </script>
+</body>
+</html>
