@@ -410,9 +410,12 @@
   /* Team Members */
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 40px;
     margin-top: 48px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .team-member {
     background: var(--bg-card);
@@ -721,14 +724,6 @@
             <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
         </div>
-      </div>
-
-      <div class="team-member animate-in">
-        <div class="team-member__photo team-member__photo--placeholder"></div>
-        <h3 class="team-member__name">Coming Soon</h3>
-        <p class="team-member__role">Tax Advisor</p>
-        <p class="team-member__bio">Cyprus-based tax specialist joining the team shortly.</p>
-        <div class="team-member__socials"></div>
       </div>
 
       <div class="team-member animate-in">
