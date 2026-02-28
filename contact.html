@@ -323,7 +323,7 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
         <p style="margin-bottom: 32px;">Fill out the form and we&rsquo;ll get back to you within 24 hours.</p>
 
           <!-- Formspree form — replace YOUR_FORM_ID with your actual Formspree form ID -->
-          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <form id="contactForm">
             <input type="hidden" name="access_key" value="4c36ea3b-44bc-4d0a-b1cb-e2a35c3e15a7">
             <!-- Honeypot spam protection (hidden field bots fill in) -->
             <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
@@ -609,26 +609,34 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
-        form.style.display = 'none';
-        document.getElementById('formSuccess').classList.add('show');
-      } else {
-        btn.textContent = 'Send message';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again or email us directly at info@primecyprus.com');
-      }
-    })
-    .catch(() => {
-      btn.textContent = 'Send message';
-      btn.disabled = false;
-      alert('Connection error. Please try again or email us directly at info@primecyprus.com');
-    });
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/147914917/f457c0c1-a7bc-48ad-9b05-2c7118418d4e', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    fields: [
+      { name: 'firstname', value: document.getElementById('firstName').value },
+      { name: 'lastname', value: document.getElementById('lastName').value },
+      { name: 'email', value: document.getElementById('email').value },
+      { name: 'message', value: document.getElementById('situation').value }
+    ],
+    context: { pageUri: 'https://primecyprus.xyz/contact.html', pageName: 'Contact' }
+  })
+})
+.then(response => {
+  if (response.ok) {
+    form.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  } else {
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again or email us directly at info@primecyprus.com');
+  }
+})
+.catch(() => {
+  btn.textContent = 'Send Message →';
+  btn.disabled = false;
+  alert('Connection error. Please try again or email us directly at info@primecyprus.com');
+});
   });
 });
 </script>
