@@ -153,6 +153,11 @@
     margin: 0 auto;
     padding: 0 24px;
   }
+  .nav__right {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
   .nav__logo {
     font-family: var(--font-display);
     font-size: 1.4rem;
@@ -603,27 +608,29 @@
         <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
       </a>
 
-      <ul class="nav__links">
-        <li><a href="digital-wealth.html">Digital Wealth</a></li>
-        <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
-        <li class="nav__dropdown">
-          <span class="nav__dropdown-trigger">Properties</span>
-          <ul class="nav__dropdown-menu">
-            <li><a href="properties.html">Properties for Sale</a></li>
-            <li><a href="rentals.html">Rentals</a></li>
-            <li><a href="property-management.html">Property Management</a></li>
-          </ul>
-        </li>
-        <li><a href="about.html" class="active">About</a></li>
-      </ul>
-
-      <div class="nav__cta">
-        <a href="contact.html" class="btn btn--primary btn--sm">Get in Touch &rarr;</a>
+      <div class="nav__right">
+        <ul class="nav__links">
+          <li><a href="digital-wealth.html">Digital Wealth</a></li>
+          <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+          <li class="nav__dropdown">
+            <a href="properties-overview.html" class="nav__dropdown-toggle">
+              Properties <span class="chevron">&#9660;</span>
+            </a>
+            <div class="nav__dropdown-menu">
+              <a href="properties.html">Properties for Sale</a>
+              <a href="property-management.html">Property Management</a>
+            </div>
+          </li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="contact.html" class="btn btn--primary btn--sm">Get in Touch &rarr;</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
-      <button class="nav__hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
