@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties &mdash; Prime Cyprus</title>
+  <meta name="description" content="Buy, rent and manage premium Cyprus properties. Explore our curated sales listings, long-term rentals, and professional property management services.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Properties &mdash; Prime Cyprus">
+  <meta property="og:description" content="Buy, rent and manage premium Cyprus properties. One destination for everything property in Cyprus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://primecyprus.xyz/properties-overview.html">
+  <meta property="og:site_name" content="Prime Cyprus">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #161e2e;
+  --bg-card-hover: #1c2640;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --gold: #d4a853;
+  --gold-light: #e8c97a;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-gold: rgba(212, 168, 83, 0.25);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --max-width: 1200px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; font-size: 16px; overflow-x: hidden; }
+a { color: var(--gold); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--gold-light); }
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; }
+.section--alt { background: var(--bg-secondary); }
+
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 24px; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin-bottom: 12px; }
+p { margin-bottom: 16px; color: var(--text-secondary); }
+
+.lead { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); max-width: 640px; }
+.section-label { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: var(--transition); text-decoration: none; }
+.btn--primary { background: var(--gold); color: var(--bg-primary); }
+.btn--primary:hover { background: var(--gold-light); color: var(--bg-primary); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25); }
+.btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--border-gold); }
+.btn--outline:hover { background: var(--gold-glow); color: var(--gold-light); border-color: var(--gold); }
+.btn--sm { padding: 10px 24px; font-size: 0.85rem; }
+
+/* Navigation */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 23, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: var(--transition); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 72px; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.nav__logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+.nav__logo .logo-accent { color: var(--gold); }
+.nav__links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav__links > li { position: relative; }
+.nav__links a { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); transition: var(--transition); position: relative; display: flex; align-items: center; gap: 4px; }
+.nav__links a:hover, .nav__links a.active { color: var(--text-primary); }
+.nav__links > li > a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: var(--transition); }
+.nav__links > li > a:hover::after, .nav__links > li > a.active::after { width: 100%; }
+.nav__cta { display: flex; align-items: center; gap: 16px; }
+
+/* Dropdown */
+.nav__dropdown { position: relative; }
+.nav__dropdown-toggle { cursor: pointer; }
+.nav__dropdown-toggle .chevron { font-size: 0.65rem; opacity: 0.6; transition: var(--transition); }
+.nav__dropdown:hover .chevron { transform: rotate(180deg); }
+.nav__dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #161e2e;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  min-width: 200px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  z-index: 100;
+}
+.nav__dropdown:hover .nav__dropdown-menu { display: block; }
+.nav__dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.nav__dropdown-menu a::after { display: none !important; }
+.nav__dropdown-menu a:hover { background: var(--gold-glow); color: var(--gold); }
+
+/* Mobile hamburger */
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav__hamburger span { display: block; width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); }
+
+/* Page Header / Hero */
+.page-hero {
+  padding: 160px 0 80px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212, 168, 83, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(30, 58, 138, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 168, 83, 0.04);
+  pointer-events: none;
+}
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.page-hero h1 { margin-bottom: 20px; animation: fadeInUp 0.6s ease-out both; }
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero .lead { margin: 0 auto 0; text-align: center; animation: fadeInUp 0.6s ease-out 0.15s both; }
+
+/* Property Hub Cards */
+.hub-section { padding: 60px 0 100px; }
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.hub-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.hub-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212,168,83,0.15);
+}
+.hub-card:hover .hub-card__img img {
+  transform: scale(1.05);
+}
+.hub-card:hover .hub-card__overlay {
+  opacity: 1;
+}
+.hub-card:hover .hub-card__arrow {
+  transform: translateX(4px);
+  color: var(--gold-light);
+}
+
+.hub-card__img {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+.hub-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hub-card__img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.hub-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(10, 14, 23, 0.6) 100%);
+  opacity: 0.6;
+  transition: var(--transition);
+}
+.hub-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 5px 12px;
+  background: var(--gold-glow);
+  border: 1px solid var(--border-gold);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  backdrop-filter: blur(8px);
+}
+
+.hub-card__body { padding: 28px 32px 32px; }
+.hub-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--gold-glow);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+.hub-card__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.hub-card__desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.hub-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  transition: var(--transition);
+}
+.hub-card__arrow { transition: var(--transition); }
+
+/* Divider line */
+.hub-card__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 32px;
+}
+
+/* Top accent line on hover */
+.hub-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 2;
+}
+.hub-card:hover::before { opacity: 1; }
+
+/* Bottom CTA strip */
+.cta-section {
+  text-align: center;
+  padding: 80px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212, 168, 83, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Footer */
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 64px 0 32px; }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer__brand p { font-size: 0.9rem; color: var(--text-muted); max-width: 300px; margin-top: 16px; }
+.footer h4 { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+.footer__links { list-style: none; }
+.footer__links li { margin-bottom: 10px; }
+.footer__links a { font-size: 0.9rem; color: var(--text-secondary); }
+.footer__links a:hover { color: var(--gold); }
+.footer__bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); }
+
+/* Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.animate-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.animate-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hub-grid { grid-template-columns: 1fr 1fr; }
+  .hub-grid .hub-card:last-child { grid-column: 1 / -1; max-width: 500px; margin: 0 auto; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .nav__links, .nav__cta .btn { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav.mobile-open .nav__links {
+    display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
+    background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px;
+  }
+  .page-hero { padding: 120px 0 60px; }
+  .hub-grid { grid-template-columns: 1fr; }
+  .hub-grid .hub-card:last-child { grid-column: auto; max-width: none; }
+  .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="digital-wealth.html">Digital Wealth</a></li>
+        <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+        <li class="nav__dropdown">
+          <a href="properties-overview.html" class="active nav__dropdown-toggle">
+            Properties <span class="chevron">&#9660;</span>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="properties.html">Properties for Sale</a>
+            <a href="https://rentals.primecyprus.xyz" target="_blank" rel="noopener">Rentals</a>
+            <a href="property-management.html">Property Management</a>
+          </div>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--primary btn--sm">Book a Call &rarr;</a>
+      </div>
+
+      <button class="nav__hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner">
+        <span class="section-label animate-in">Cyprus Property</span>
+        <h1 class="animate-in">Buy, Rent &amp; Manage<br><em>Premium Cyprus Properties</em></h1>
+        <p class="lead animate-in" style="margin-top: 20px;">
+          One destination for everything property in Cyprus. Whether you&rsquo;re acquiring an asset, finding a home, or growing a portfolio &mdash; we&rsquo;ve got it covered.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hub Cards -->
+  <section class="hub-section">
+    <div class="container">
+      <div class="hub-grid">
+
+        <!-- Properties for Sale -->
+        <a href="properties.html" class="hub-card animate-in">
+          <div class="hub-card__img">
+            <!-- Replace src with your actual image -->
+            <img src="images/properties-sale.jpg" alt="Properties for Sale in Cyprus"
+              onerror="this.parentElement.style.background='linear-gradient(135deg, #1c2640 0%, #0a0e17 100%)'; this.style.display='none';">
+            <div class="hub-card__overlay"></div>
+            <div class="hub-card__badge">Buy</div>
+          </div>
+          <div class="hub-card__body">
+            <div class="hub-card__icon">&#127968;</div>
+            <div class="hub-card__title">Properties for Sale</div>
+            <p class="hub-card__desc">
+              Curated premium listings across Limassol, Paphos, Nicosia, and Larnaca. Villas, apartments, and commercial property &mdash; including residency-qualifying investments from &euro;300,000. Purchase with crypto accepted.
+            </p>
+            <span class="hub-card__cta">
+              Browse listings <span class="hub-card__arrow">&rarr;</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Rentals -->
+        <a href="https://rentals.primecyprus.xyz" target="_blank" rel="noopener" class="hub-card animate-in">
+          <div class="hub-card__img">
+            <!-- Replace src with your actual image -->
+            <img src="images/rentals.jpg" alt="Premium Rentals in Cyprus"
+              onerror="this.parentElement.style.background='linear-gradient(135deg, #1a2235 0%, #0d1220 100%)'; this.style.display='none';">
+            <div class="hub-card__overlay"></div>
+            <div class="hub-card__badge">Rent</div>
+          </div>
+          <div class="hub-card__body">
+            <div class="hub-card__icon">&#128336;</div>
+            <div class="hub-card__title">Rentals</div>
+            <p class="hub-card__desc">
+              Short and long-term rental properties across Cyprus. Fully furnished apartments and villas for those establishing residency, arriving for a trial period, or simply needing a premium base while planning their move.
+            </p>
+            <span class="hub-card__cta">
+              Find a rental <span class="hub-card__arrow">&rarr;</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Property Management -->
+        <a href="property-management.html" class="hub-card animate-in">
+          <div class="hub-card__img">
+            <!-- Replace src with your actual image -->
+            <img src="images/property-management.jpg" alt="Property Management in Cyprus"
+              onerror="this.parentElement.style.background='linear-gradient(135deg, #1e1a2e 0%, #100d1a 100%)'; this.style.display='none';">
+            <div class="hub-card__overlay"></div>
+            <div class="hub-card__badge">Manage</div>
+          </div>
+          <div class="hub-card__body">
+            <div class="hub-card__icon">&#128200;</div>
+            <div class="hub-card__title">Property Management</div>
+            <p class="hub-card__desc">
+              Own property in Cyprus but not living there full-time? We handle everything &mdash; tenant sourcing, maintenance, rental income, and reporting. Your asset works for you while you&rsquo;re wherever you want to be.
+            </p>
+            <span class="hub-card__cta">
+              Learn more <span class="hub-card__arrow">&rarr;</span>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section--alt">
+    <div class="container" style="position: relative; z-index: 1;">
+      <span class="section-label animate-in">Get Started</span>
+      <h2 class="animate-in">Not sure where to start?</h2>
+      <p class="lead animate-in" style="margin: 0 auto 40px;">
+        Book a free consultation and we&rsquo;ll help you figure out whether buying, renting, or managing makes sense for your situation right now.
+      </p>
+      <div class="animate-in" style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn--primary">Book a Free Consultation &rarr;</a>
+        <a href="residency-tax.html" class="btn btn--outline">Read the Tax Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <span class="logo-accent">&#9670;</span> Prime <span class="logo-accent">Cyprus</span>
+          </a>
+          <p>Tax optimization, residency planning, and property investment for digital wealth builders. Based in Cyprus, serving clients globally.</p>
+        </div>
+
+        <div>
+          <h4>Properties</h4>
+          <ul class="footer__links">
+            <li><a href="properties.html">Properties for Sale</a></li>
+            <li><a href="https://rentals.primecyprus.xyz" target="_blank" rel="noopener">Rentals</a></li>
+            <li><a href="property-management.html">Property Management</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul class="footer__links">
+            <li><a href="residency-tax.html">Residency &amp; Tax</a></li>
+            <li><a href="digital-wealth.html">Digital Wealth</a></li>
+            <li><a href="contact.html">Book a Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Prime Cyprus. All rights reserved.</span>
+        <span>This website provides general information and is not financial, legal, or tax advice. Always consult qualified professionals for your specific situation.</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll Animations
+  const animateElements = document.querySelectorAll('.animate-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  animateElements.forEach(el => observer.observe(el));
+
+  // Mobile Navigation
+  const hamburger = document.querySelector('.nav__hamburger');
+  const nav = document.querySelector('.nav');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => nav.classList.toggle('mobile-open'));
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.06)';
+  });
+});
+</script>
+</body>
+</html>
