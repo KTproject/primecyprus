@@ -514,7 +514,7 @@ Everything Aion shares is general information — not legal, tax, or financial a
   let aionEmailOffered = false;
   let aionMsgCount = 0;
 
-  const GREETING = "Hi, I'm Aion — your Cyprus advisory guide. Ask me anything about relocating, tax optimisation, residency, or property in Cyprus. I'll tell you what I know, and connect you with our CEO when your situation calls for a real conversation.";
+  const GREETING = "Hi, I'm Aion — your Prime ai assistant. Ask me anything about relocating, tax optimisation, residency, or property in Cyprus. I'll tell you what I know, and connect you with our CEO when your situation calls for a real conversation.";
 
   // ============================================
   // FUNCTIONS
