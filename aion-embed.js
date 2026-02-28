@@ -627,11 +627,11 @@ Everything Aion shares is general information — not legal, tax, or financial a
         if (offerEmail) aionEmailOffered = true;
         aionAppendMsg('aion', reply, offerEmail);
       } else {
-        aionAppendMsg('aion', "I ran into an issue connecting. Please try again, or email us directly at info@primecyprus.com — we'll get back to you within 24 hours.");
+        aionAppendMsg('aion', "I ran into an issue connecting. Please try again, or email us directly at kristinecyprus@proton.me — we'll get back to you within 24 hours.");
       }
     } catch (err) {
       aionHideTyping();
-      aionAppendMsg('aion', "Connection issue — please try again or reach us at info@primecyprus.com");
+      aionAppendMsg('aion', "Connection issue — please try again or reach us at kristinecyprus@proton.me");
     }
     sendBtn.disabled = false;
     input.focus();
