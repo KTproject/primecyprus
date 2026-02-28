@@ -356,7 +356,7 @@
   // CONFIG
   // ============================================
   const AION_CONFIG = {
-    formspreeId: 'YOUR_FORMSPREE_ID'
+    
   };
 
   // ============================================
@@ -651,10 +651,13 @@ Everything Aion shares is general information — not legal, tax, or financial a
       .map(m => `${m.role === 'user' ? 'Visitor' : 'Aion'}: ${m.content}`)
       .join('\n\n---\n\n');
     try {
-      await fetch(`https://formspree.io/f/${AION_CONFIG.formspreeId}`, {
+      await fetch('https://api.hsforms.com/submissions/v3/integration/submit/147914917/f457c0c1-a7bc-48ad-9b05-2c7118418d4e', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ _replyto: email, email, subject: `New Aion lead — ${email}`, conversation: summary })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: [{ name: 'email', value: email }],
+          context: { pageUri: window.location.href, pageName: 'Aion Chat' }
+        })
       });
     } catch (e) {}
     const card = document.getElementById('aionEmailCard');
