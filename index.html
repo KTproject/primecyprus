@@ -1516,7 +1516,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : (p.price || 'Price on application');
 
           return `
-            <div class="card">
+            <div class="card" onclick="window.location='properties.html'" style="cursor: pointer;">
               ${hasImage ? `<img src="${imgUrl}" alt="${(p.title || 'Featured property in Cyprus').replace(/"/g, '&quot;')}" loading="lazy">` : ''}
               <h3>${p.title || 'Featured property in Cyprus'}</h3>
               ${p.location ? `<p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">${p.location}</p>` : ''}
