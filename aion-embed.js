@@ -324,7 +324,7 @@
         <div class="aion-avatar">A</div>
         <div class="aion-header-info">
           <h4>Aion</h4>
-          <span>Prime Cyprus &middot; Advisory</span>
+          <span>PRIME CYPRUS &middot; ASSISTANT</span>
         </div>
       </div>
       <button class="aion-close" aria-label="Close chat">
@@ -514,7 +514,7 @@ Everything Aion shares is general information — not legal, tax, or financial a
   let aionEmailOffered = false;
   let aionMsgCount = 0;
 
-  const GREETING = "Hi, I'm Aion — your Prime ai assistant. Ask me anything about relocating, tax optimisation, residency, or property in Cyprus. I'll tell you what I know, and connect you with our CEO when your situation calls for a real conversation.";
+  const GREETING = "Hi there! Ask me anything about relocating to Cyprus — tax, residency, or property. You can request to talk to the founder directly at any time.";
 
   // ============================================
   // FUNCTIONS
