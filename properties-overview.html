@@ -122,7 +122,6 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   padding: 120px 0 40px;
   position: relative;
   overflow: hidden;
-  text-align: center;
 }
 .page-hero::before {
   content: '';
@@ -149,14 +148,14 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   position: relative;
   z-index: 1;
   max-width: 760px;
-  margin: 0 auto;
+  margin: 0;
 }
 .hero h1 {
   line-height: 1.05;
 }
 .page-hero h1 { margin-bottom: 20px; animation: fadeInUp 0.6s ease-out both; }
 .page-hero h1 em { font-style: italic; color: var(--gold); }
-.page-hero .lead { margin: 0 auto 0; text-align: center; animation: fadeInUp 0.6s ease-out 0.15s both; }
+.page-hero .lead { margin: 0; animation: fadeInUp 0.6s ease-out 0.15s both; }
 
 /* Property Hub Cards */
 .hub-section { padding: 18px 0 32px; }
@@ -392,7 +391,7 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   <div class="page-hero">
     <div class="container">
       <div class="page-hero__inner">
-        <span style="font-family: var(--font-body); font-size: 1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px;">Prime Properties</span>
+        <span class="section-label">Prime Properties</span>
         <h1 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; color: var(--text-primary); font-style: italic; letter-spacing: -0.02em; margin-bottom: 0;">All under one roof.</h1>
       </div>
     </div>
