@@ -73,9 +73,9 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--gold);
-  color: #0a0e17;
-  border: none;
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
   border-radius: 100px;
   padding: 14px 22px;
   font-family: var(--font-body);
@@ -86,7 +86,7 @@ body {
   transition: var(--transition);
 }
 #aion-trigger:hover {
-  background: var(--gold-light);
+  background: rgba(212, 168, 83, 0.12);
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(212, 168, 83, 0.4);
 }
@@ -94,7 +94,7 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #0a0e17;
+  background: var(--gold);
   animation: aion-pulse 2s ease-in-out infinite;
   flex-shrink: 0;
 }
