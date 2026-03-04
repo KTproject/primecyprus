@@ -301,6 +301,7 @@
   #aion-window {
     max-width: 340px;
     right: 16px;
+    left: auto;
     bottom: 80px;
     max-height: 60vh;
   }
