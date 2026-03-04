@@ -250,7 +250,15 @@
 <script src="aion-embed.js"></script>
 <style>
 .contact-float { display: flex; }
-@media (max-width: 768px) { .contact-float { display: none; } }
+@media (max-width: 768px) {
+  .contact-float { display: none; }
+  .nav__logo {
+    font-size: 1.1rem;
+  }
+  .nav__logo .logo-accent {
+    font-size: 0.9rem;
+  }
+}
 </style>
 <div class="contact-float" style="position: fixed; right: 28px; bottom: 170px; z-index: 9997; flex-direction: column; gap: 10px;">
   <a href="https://wa.me/4561308102" target="_blank" rel="noopener" aria-label="WhatsApp" style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.3); transition: 0.3s cubic-bezier(0.4,0,0.2,1);" onmouseover="this.style.background='var(--gold-glow)'" onmouseout="this.style.background='var(--bg-card)'">
