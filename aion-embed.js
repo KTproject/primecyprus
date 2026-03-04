@@ -297,6 +297,15 @@
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@media (max-width: 768px) {
+  #aion-window {
+    max-width: 340px;
+    right: 16px;
+    bottom: 80px;
+    max-height: 60vh;
+  }
+  body.aion-open #aion-trigger { display: none; }
+}
 @media (max-width: 480px) {
   #aion-window {
     bottom: 0; right: 0; left: 0;
@@ -523,6 +532,7 @@ Everything Aion shares is general information — not legal, tax, or financial a
   function aionToggle() {
     aionOpen = !aionOpen;
     document.getElementById('aion-window').classList.toggle('open', aionOpen);
+    document.body.classList.toggle('aion-open', aionOpen);
     if (aionOpen && aionHistory.length === 0) {
       setTimeout(() => aionAppendMsg('aion', GREETING), 350);
     }
