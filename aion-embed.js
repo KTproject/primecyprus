@@ -304,6 +304,20 @@
     max-height: 60vh;
   }
   body.aion-open #aion-trigger { display: none; }
+  #aion-trigger {
+    bottom: 20px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    padding: 0;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(212, 168, 83, 0.3);
+  }
+  #aion-trigger .aion-trigger__text,
+  #aion-trigger .aion-trigger__dot {
+    display: none;
+  }
 }
 @media (max-width: 480px) {
   #aion-window {
@@ -312,7 +326,6 @@
     max-height: 85vh;
     border-radius: 20px 20px 0 0;
   }
-  #aion-trigger { bottom: 20px; right: 20px; }
 }
   `;
   document.head.appendChild(style);
