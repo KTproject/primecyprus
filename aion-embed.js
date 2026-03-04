@@ -326,6 +326,23 @@
     max-height: 85vh;
     border-radius: 20px 20px 0 0;
   }
+  #aion-trigger {
+    bottom: 20px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    padding: 0;
+    justify-content: center;
+    font-size: 0;
+  }
+  #aion-trigger .aion-dot {
+    display: none;
+  }
+  #aion-trigger::after {
+    content: '💬';
+    font-size: 22px;
+  }
 }
   `;
   document.head.appendChild(style);
