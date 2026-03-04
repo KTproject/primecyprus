@@ -307,7 +307,7 @@
 }
 @media (max-width: 480px) {
   #aion-window {
-    bottom: 0; right: 0; left: 0;
+    bottom: 0; right: 0; left: auto;
     width: 100%;
     max-height: 85vh;
     border-radius: 20px 20px 0 0;
