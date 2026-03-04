@@ -333,15 +333,20 @@
     height: 52px;
     border-radius: 50%;
     padding: 0;
+    display: flex;
+    align-items: center;
     justify-content: center;
     font-size: 0;
+    line-height: 1;
   }
   #aion-trigger .aion-dot {
     display: none;
   }
   #aion-trigger::after {
     content: '💬';
-    font-size: 22px;
+    font-size: 20px;
+    line-height: 1;
+    display: block;
   }
 }
   `;
