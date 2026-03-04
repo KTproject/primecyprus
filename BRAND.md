@@ -54,7 +54,7 @@ Cyprus is not just a tax address. Lead with the life:
 ## Services
 1. **Residency & Tax** — the front door. 60-day rule, non-dom status, EU residency pathway, tax structuring
 2. **Properties** — premium listings, curated for the audience. Can transact in crypto.
-3. **Digital Wealth** — crypto portfolio structuring, 8% flat crypto tax, IP Box (2.5%), non-dom dividend exemption
+3. **Digital Income** — crypto portfolio structuring, 8% flat crypto tax, IP Box (2.5%), non-dom dividend exemption
 
 ---
 

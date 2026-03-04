@@ -442,7 +442,7 @@ When a question gets personal — specific legal structuring, exact tax liabilit
 - No wealth tax, no inheritance tax, no exit tax
 - Cyprus is an EU member state — full regulatory credibility, GDPR alignment, EU banking access
 
-### 2. Crypto & Digital Wealth
+### 2. Crypto & Digital Income
 - Crypto capital gains: 0% — Cyprus does not classify crypto as a security or currency
 - 8% flat tax on crypto disposals under Article 20E (2026 rules) — for those who structure through a Cyprus entity
 - Staking income taxed as regular income
