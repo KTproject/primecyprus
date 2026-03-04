@@ -322,6 +322,7 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   gap: 48px;
 }
 .nav__logo {
+  margin-right: auto;
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 700;
@@ -967,9 +968,6 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="nav__cta">
-          <a href="contact.html" class="btn btn--primary btn--sm">Get in Touch &rarr;</a>
-        </div>
         <button class="nav__hamburger" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -1540,5 +1538,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script src="aion-embed.js"></script>
+<div class="contact-icons-fixed" style="position: fixed; right: 28px; bottom: 100px; z-index: 9997; display: flex; flex-direction: column; gap: 12px;">
+  <a href="https://wa.me/35799123456" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: #25D366; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s;">WhatsApp</a>
+  <a href="https://t.me/primecyprus" target="_blank" rel="noopener noreferrer" aria-label="Telegram" style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: #0088cc; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s;">Telegram</a>
+</div>
 </body>
 </html>
