@@ -83,10 +83,25 @@
       .footer__grid { grid-template-columns:1fr 1fr; }
     }
     @media (max-width:768px) {
+      .social-topbar { display: none; }
+      .nav { top: 0 !important; }
       .page-spacer { padding-top: 120px; }
-      .nav__links,.nav__cta .btn { display:none; }
+      .nav__links, .nav__cta { display:none; }
       .nav__hamburger { display:flex; }
-      .nav.mobile-open .nav__links { display:flex; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:var(--bg-primary); border-bottom:1px solid var(--border); padding:24px; gap:20px; }
+      .nav.mobile-open .nav__links {
+        display:flex; flex-direction:column;
+        position:fixed; top:72px; left:0; right:0;
+        background:var(--bg-primary); border-bottom:1px solid var(--border);
+        padding:24px; gap:20px; z-index:999;
+      }
+      .nav.mobile-open .nav__dropdown-menu {
+        position:static; transform:none; margin-top:8px; margin-left:12px;
+        opacity:1; visibility:visible; box-shadow:none;
+        border:none; border-left:1px solid var(--border-gold);
+        padding:4px 0; background:transparent; min-width:auto;
+        display:block;
+      }
+      .nav.mobile-open .nav__dropdown-menu a { padding:8px 16px; font-size:0.85rem; }
       .grid { grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; }
       .footer__grid { grid-template-columns:1fr; gap:32px; }
       .footer__bottom { flex-direction:column; gap:16px; text-align:center; }
@@ -96,7 +111,7 @@
 <body>
 
   <!-- Navigation -->
-  <div style="background: rgba(10,14,23,0.95); border-bottom: 1px solid rgba(255,255,255,0.04); padding: 8px 0; position: fixed; top: 0; left: 0; right: 0; z-index: 1001;">
+  <div class="social-topbar" style="background: rgba(10,14,23,0.95); border-bottom: 1px solid rgba(255,255,255,0.04); padding: 8px 0; position: fixed; top: 0; left: 0; right: 0; z-index: 1001;">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: flex-end; gap: 16px; align-items: center;">
       <a href="https://linkedin.com/company/prime-cyprus" target="_blank" rel="noopener" aria-label="LinkedIn" onmouseover="this.style.color='#d4a853'" onmouseout="this.style.color='#64748b'" style="color: #64748b; transition: color 0.3s ease; display: flex;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
