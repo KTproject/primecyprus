@@ -103,6 +103,7 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
 /* Topic grid — 4 anchor cards at top */
 .topic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
 .topic-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 24px 20px; transition: var(--transition); text-decoration: none; display: block; }
+.stat-pill { padding: 12px 20px; }
 .topic-card:hover { border-color: var(--border-gold); background: var(--bg-card-hover); transform: translateY(-3px); }
 .topic-card__number { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; margin-bottom: 8px; }
 .topic-card h4 { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0; }
@@ -181,6 +182,7 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
   .nav__dropdown-trigger::after { display: none; }
   .page-header { padding: 153px 0 48px; }
   .topic-grid { grid-template-columns: 1fr 1fr; }
+  .stat-pill { padding: 10px 16px; }
   .footer__grid { grid-template-columns: 1fr; gap: 32px; }
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
   .btn-group { flex-direction: column; align-items: center; }
@@ -255,8 +257,8 @@ p { margin-bottom: 16px; color: var(--text-secondary); }
           <h4>Non-Dom Status</h4>
         </a>
         <a href="#residency" class="topic-card">
-          <span class="topic-card__number">PR</span>
-          <h4>Permanent Residency</h4>
+          <span class="stat-pill__number">&infin;</span>
+          <span class="stat-pill__label">Permit Validity</span>
         </a>
         <a href="#company" class="topic-card">
           <span class="topic-card__number">15%</span>
